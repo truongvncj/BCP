@@ -35,6 +35,7 @@
             this.bt_exporttoex = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
+            this.btupdate = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -44,6 +45,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.btupdate);
             this.panel1.Controls.Add(this.lbcount);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.bt_exporttoex);
@@ -76,7 +78,7 @@
             // bt_exporttoex
             // 
             this.bt_exporttoex.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bt_exporttoex.Location = new System.Drawing.Point(1126, 479);
+            this.bt_exporttoex.Location = new System.Drawing.Point(1119, 479);
             this.bt_exporttoex.Name = "bt_exporttoex";
             this.bt_exporttoex.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.bt_exporttoex.Size = new System.Drawing.Size(87, 20);
@@ -114,6 +116,18 @@
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
+            // btupdate
+            // 
+            this.btupdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btupdate.Location = new System.Drawing.Point(1012, 479);
+            this.btupdate.Name = "btupdate";
+            this.btupdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btupdate.Size = new System.Drawing.Size(87, 20);
+            this.btupdate.TabIndex = 21;
+            this.btupdate.Text = "Update data";
+            this.btupdate.UseVisualStyleBackColor = true;
+            this.btupdate.Click += new System.EventHandler(this.btupdate_Click);
+            // 
             // BCPViewdatatable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,5 +156,6 @@
         private System.Windows.Forms.Label lbcount;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btupdate;
     }
 }

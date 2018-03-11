@@ -92,7 +92,7 @@ namespace BCP.View
             // btmasschangecontract
             // 
             this.btmasschangecontract.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btmasschangecontract.Location = new System.Drawing.Point(1108, 451);
+            this.btmasschangecontract.Location = new System.Drawing.Point(1024, 431);
             this.btmasschangecontract.Name = "btmasschangecontract";
             this.btmasschangecontract.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btmasschangecontract.Size = new System.Drawing.Size(127, 19);
@@ -104,7 +104,7 @@ namespace BCP.View
             // btmassconfirm
             // 
             this.btmassconfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btmassconfirm.Location = new System.Drawing.Point(1040, 450);
+            this.btmassconfirm.Location = new System.Drawing.Point(929, 432);
             this.btmassconfirm.Name = "btmassconfirm";
             this.btmassconfirm.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btmassconfirm.Size = new System.Drawing.Size(80, 19);
@@ -209,7 +209,7 @@ namespace BCP.View
             // bt_addtomaster
             // 
             this.bt_addtomaster.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bt_addtomaster.Location = new System.Drawing.Point(1125, 450);
+            this.bt_addtomaster.Location = new System.Drawing.Point(1127, 449);
             this.bt_addtomaster.Name = "bt_addtomaster";
             this.bt_addtomaster.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.bt_addtomaster.Size = new System.Drawing.Size(108, 19);

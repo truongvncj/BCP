@@ -200,7 +200,7 @@ namespace BCP.Control.PriceCheck
             int columValid_to = 0;
             int headindex = 0;
 
-            for (int rowid = 0; rowid < sourceData.Rows.Count; rowid++)
+            for (int rowid = 0; rowid < 20; rowid++) // basepriceValu kiem ta 20 dong dau de lấy colum
             {
                 headindex = 1;
                 for (int columid = 0; columid < sourceData.Columns.Count; columid++)
@@ -284,6 +284,14 @@ namespace BCP.Control.PriceCheck
 
                 }// colum
 
+
+
+
+            }// row
+
+            for (int rowid = 0; rowid < sourceData.Rows.Count ; rowid++) // basepriceValu kiem ta 20 dong dau de lấy colum
+            {
+
                 OleDbConnection conn = new OleDbConnection(connection_string);
                 conn.Open();
                 #region setvalue of pricelist
@@ -298,104 +306,94 @@ namespace BCP.Control.PriceCheck
 
                 if (headindex != 0 && valuepricelist == "YPR0")
                 {
-                    //    DataRow dr = batable.NewRow();
-                    //dr["PriceList"] = Pricelist.Trim();
-
-                    ////   dr["Material"] = Utils.GetValueOfCellInExcel(worksheet, rowid, columpmaterial);
-                    //dr["Material"] = sourceData.Rows[rowid][columpmaterial].ToString().Trim();
-
-                    //dr["MaterialNAme"] = sourceData.Rows[rowid][columname].ToString().Trim();//Utils.GetValueOfCellInExcel(worksheet, rowid, columname);
-                    //dr["Amount"] = double.Parse(sourceData.Rows[rowid][columpamount].ToString());// Utils.GetValueOfCellInExcel(worksheet, rowid, columpamount);
-                    //dr["Unit"] = sourceData.Rows[rowid][columunit].ToString().Trim();//  Utils.GetValueOfCellInExcel(worksheet, rowid, columunit);
-                    //dr["UoM"] = sourceData.Rows[rowid][columUoM].ToString().Trim();// Utils.GetValueOfCellInExcel(worksheet, rowid, columUoM);
-                    //dr["Valid_From"] = Utils.chageExceldatetoData(sourceData.Rows[rowid][columValid_From].ToString());// Utils.GetValueOfCellInExcel(worksheet, rowid, columValid_From);
-                    //dr["Valid_to"] = Utils.chageExceldatetoData(sourceData.Rows[rowid][columValid_to].ToString());// Utils.GetValueOfCellInExcel(worksheet, rowid, columValid_to);
-
-                    //      batable.Rows.Add(dr);
-                    #region setvalue 
-                    //   string valuepricelist = Utils.GetValueOfCellInExcel(worksheet, rowid, columpricelist);
-                    string code = sourceData.Rows[rowid][columpmaterial].ToString();
-                    if (code != "")
+                    double basepriceValue = double.Parse(sourceData.Rows[rowid][columpamount].ToString());
+                    if (basepriceValue > 0) /// chi update các code >0
                     {
-                        /// inser vao tbale access
+
+                        #region setvalue 
+                        //   string valuepricelist = Utils.GetValueOfCellInExcel(worksheet, rowid, columpricelist);
+                        string code = sourceData.Rows[rowid][columpmaterial].ToString();
+                        if (code != "")
+                        {
+                            /// inser vao tbale access
 
 
-                        string StringQuery = @"INSERT INTO tbl_pricebase_list( product_code,   pricebase, Unit,  Pack, fromdate, todate,  Username, MaterialName,   PriceList ) 
+                            string StringQuery = @"INSERT INTO tbl_pricebase_list( product_code,   pricebase, Unit,  Pack, fromdate, todate,  Username, MaterialName,   PriceList ) 
 
                                                                       VALUES ( @product_code, @pricebase, @Unit, @Pack, @fromdate, @todate, @Username, @MaterialName, @PriceList  )";
-                        OleDbCommand comm = new OleDbCommand(StringQuery, conn);
+                            OleDbCommand comm = new OleDbCommand(StringQuery, conn);
 
 
-                        //ADD PARAMS
-                        comm.Parameters.AddWithValue("@product_code", sourceData.Rows[rowid][columpmaterial].ToString().Trim());
-                        comm.Parameters.AddWithValue("@pricebase", double.Parse(sourceData.Rows[rowid][columpamount].ToString()));
-                        comm.Parameters.AddWithValue("@Unit", sourceData.Rows[rowid][columunit].ToString().Trim());
-                        comm.Parameters.AddWithValue("@Pack", sourceData.Rows[rowid][columUoM].ToString().Trim());
+                            //ADD PARAMS
+                            comm.Parameters.AddWithValue("@product_code", sourceData.Rows[rowid][columpmaterial].ToString().Trim());
+                            comm.Parameters.AddWithValue("@pricebase", double.Parse(sourceData.Rows[rowid][columpamount].ToString()));
+                            comm.Parameters.AddWithValue("@Unit", sourceData.Rows[rowid][columunit].ToString().Trim());
+                            comm.Parameters.AddWithValue("@Pack", sourceData.Rows[rowid][columUoM].ToString().Trim());
 
-                        OleDbParameter parm = new OleDbParameter("@fromdate", OleDbType.Date);
-                        parm.Value = Utils.ConvertStringSAPdotdatetoDatetime(sourceData.Rows[rowid][columValid_From].ToString());
-                        comm.Parameters.Add(parm);
+                            OleDbParameter parm = new OleDbParameter("@fromdate", OleDbType.Date);
+                            parm.Value = Utils.ConvertStringSAPdotdatetoDatetime(sourceData.Rows[rowid][columValid_From].ToString());
+                            comm.Parameters.Add(parm);
 
-                        OleDbParameter parm2 = new OleDbParameter("@todate", OleDbType.Date);
-                        parm2.Value = Utils.ConvertStringSAPdotdatetoDatetime(sourceData.Rows[rowid][columValid_to].ToString());
-                        comm.Parameters.Add(parm2);
+                            OleDbParameter parm2 = new OleDbParameter("@todate", OleDbType.Date);
+                            parm2.Value = Utils.ConvertStringSAPdotdatetoDatetime(sourceData.Rows[rowid][columValid_to].ToString());
+                            comm.Parameters.Add(parm2);
 
-                        comm.Parameters.AddWithValue("@Username", username.Trim());
-                        comm.Parameters.AddWithValue("@MaterialName", sourceData.Rows[rowid][columname].ToString().Trim());
+                            comm.Parameters.AddWithValue("@Username", username.Trim());
+                            comm.Parameters.AddWithValue("@MaterialName", sourceData.Rows[rowid][columname].ToString().Trim());
 
-                        comm.Parameters.AddWithValue("@PriceList", Pricelist.Trim());
+                            comm.Parameters.AddWithValue("@PriceList", Pricelist.Trim());
 
-                        try
-                        {
-                            //   MessageBox.Show(comm.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            int temp = comm.ExecuteNonQuery();
-
-                            if (temp > 0)
-
+                            try
                             {
-                                //  MessageBox.Show("Password Change !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                //   MessageBox.Show(comm.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                //then the data saved successfully
+                                int temp = comm.ExecuteNonQuery();
 
+                                if (temp > 0)
+
+                                {
+                                    //  MessageBox.Show("Password Change !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    //then the data saved successfully
+
+                                }
+
+                                else
+
+                                {
+                                    MessageBox.Show("value row error :" + rowid.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    //      Thread.CurrentThread.Abort();
+                                    return;
+                                    //it did not save
+
+                                }
+                                //
                             }
-
-                            else
-
+                            catch (Exception ex)
                             {
-                                MessageBox.Show("value row error :" + rowid.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                //      Thread.CurrentThread.Abort();
+
+                                MessageBox.Show("Error :" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                //    Thread.CurrentThread.Abort();
                                 return;
-                                //it did not save
-
                             }
-                            //
-                        }
-                        catch (Exception ex)
-                        {
 
-                            MessageBox.Show("Error :" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            //    Thread.CurrentThread.Abort();
-                            return;
+                            /// inser vao table access
+
+
+
+
                         }
 
-                        /// inser vao table access
-
-
-
+                        #endregion
 
                     }
-
-                    #endregion
-
 
                 }
 
                 #endregion
                 conn.Close();
 
-            }// row
-
+            }
             //conpy to server
 
             //copy to server
@@ -498,7 +496,7 @@ namespace BCP.Control.PriceCheck
 
             // create the adapter and fill the DataSet
             OleDbDataAdapter adapter =
-             new OleDbDataAdapter("SELECT DISTINCT sales_region FROM tbl_list_customer ", conn);
+             new OleDbDataAdapter("SELECT  Regions FROM tbl_salesRegionList ", conn); //DISTINCT
             adapter.Fill(ds);
 
             // close the connection
@@ -509,9 +507,9 @@ namespace BCP.Control.PriceCheck
             {
                 //  MessageBox.Show((dr["username"].ToString()));
 
-                listvn.Add(dr["sales_region"].ToString());
+                listvn.Add(dr["Regions"].ToString());
             }
-            listvn.Add("VN");
+         
 
             //ds. = DBNull;
             //dt = DBNull;

@@ -751,28 +751,7 @@ namespace BCP.View
 
             #endregion//update datagridview to database
 
-            //try
-            //{
-            //    db.SubmitChanges();
-            //}
-            //catch (Exception ex)
-            //{
-
-            //    MessageBox.Show(ex.ToString(), "Please Check !");
-
-            //    return;
-            //}    
-
-
-
-
-
-
-
-
-
-
-
+          
 
             #region        // insert cac dong  khong co trong gridview khong co cos tron data
 
@@ -888,6 +867,7 @@ namespace BCP.View
             }
             #endregion foreach
 
+            MessageBox.Show("Data update done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
             try
@@ -899,7 +879,7 @@ namespace BCP.View
 
                 MessageBox.Show(ex.ToString(), "Please Check !");
             }
-
+         
 
             // view lại
             //   string slqtext = "select *  from  " + tblnamesub; // EXCEPT (" + IDsub + ") 
@@ -917,7 +897,7 @@ namespace BCP.View
             source1.DataSource = results2;
             this.dataGridView1.DataSource = source1;
             // view lại
-            MessageBox.Show("Data update done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    MessageBox.Show("Data update done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
 

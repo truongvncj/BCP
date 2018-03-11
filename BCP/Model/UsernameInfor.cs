@@ -50,9 +50,6 @@ namespace BCP.Model
             conn.Open();
 
 
-            //   string StringQuery = @"Select * from  tbl_list_Order where tbl_list_Order.Custype = @Custype and tbl_list_Order.Plant = @Plant and tbl_list_Order.Code = @Code";
-            //   CAST(totalBal as float)
-
             string StringQuery = @"Select tbl_Temp.Plant from  tbl_Temp where tbl_Temp.username = @userName";//, @Customer_Code )"; //'%test%'
 
 
@@ -62,18 +59,7 @@ namespace BCP.Model
 
 
             comm.Parameters.AddWithValue("@userName", userName);
-            // comm.Parameters.AddWithValue("@Plant", this.shippingpoint);
-            //    comm.Parameters.AddWithValue("@Customer_Code", this.Seachcode);
-
-
-            //OleDbParameter parm = new OleDbParameter("@fromdate", OleDbType.Date);
-            //parm.Value = fromdate;
-            //comm.Parameters.Add(parm);
-
-            //OleDbParameter parm2 = new OleDbParameter("@todate", OleDbType.Date);
-            //parm2.Value = todate;
-            //comm.Parameters.Add(parm2)/*;*/
-
+         
 
             DataSet ds = new DataSet();
 
@@ -104,7 +90,380 @@ namespace BCP.Model
 
 
         }
+        // OrderEntry
 
+        public static bool getOrderEntryRight()
+        {
+
+
+            bool Userright = false;
+            string connection_string = Utils.getAccessConnectionstring();
+            string userName = Utils.getUsername();
+
+            OleDbConnection conn = new OleDbConnection(connection_string);
+            conn.Open();
+
+
+            string StringQuery = @"Select tbl_Temp.OrderEntry from  tbl_Temp where tbl_Temp.username = @userName";//, @Customer_Code )"; //'%test%'
+
+
+            OleDbCommand comm = new OleDbCommand(StringQuery, conn);
+
+            //ADD PARAMS
+
+
+            comm.Parameters.AddWithValue("@userName", userName);
+
+
+            DataSet ds = new DataSet();
+
+            // create the adapter and fill the DataSet
+
+            // 
+            OleDbDataAdapter adapter =
+             new OleDbDataAdapter(comm);
+            adapter.Fill(ds);
+            conn.Close();
+            System.Data.DataTable dt = ds.Tables[0];
+
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                //  MessageBox.Show((dr["username"].ToString()));
+
+                Userright = (bool)dr["OrderEntry"];
+            }
+
+            return Userright;
+
+
+
+
+
+
+
+
+        }
+
+        public static bool getARreleaseRight()
+        {
+
+
+            bool Userright = false;
+            string connection_string = Utils.getAccessConnectionstring();
+            string userName = Utils.getUsername();
+
+            OleDbConnection conn = new OleDbConnection(connection_string);
+            conn.Open();
+
+
+            string StringQuery = @"Select tbl_Temp.ARrelease from  tbl_Temp where tbl_Temp.username = @userName";//, @Customer_Code )"; //'%test%'
+
+
+            OleDbCommand comm = new OleDbCommand(StringQuery, conn);
+
+            //ADD PARAMS
+
+
+            comm.Parameters.AddWithValue("@userName", userName);
+
+
+            DataSet ds = new DataSet();
+
+            // create the adapter and fill the DataSet
+
+            // 
+            OleDbDataAdapter adapter =
+             new OleDbDataAdapter(comm);
+            adapter.Fill(ds);
+            conn.Close();
+            System.Data.DataTable dt = ds.Tables[0];
+
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                //  MessageBox.Show((dr["username"].ToString()));
+
+                Userright = (bool)dr["ARrelease"];
+            }
+
+            return Userright;
+
+
+
+
+
+
+
+
+        }
+
+        public static bool getLoadmakepalletickRight()
+        {
+
+
+            bool Userright = false;
+            string connection_string = Utils.getAccessConnectionstring();
+            string userName = Utils.getUsername();
+
+            OleDbConnection conn = new OleDbConnection(connection_string);
+            conn.Open();
+
+
+            string StringQuery = @"Select tbl_Temp.Loadmakepalletick from  tbl_Temp where tbl_Temp.username = @userName";//, @Customer_Code )"; //'%test%'
+
+
+            OleDbCommand comm = new OleDbCommand(StringQuery, conn);
+
+            //ADD PARAMS
+
+
+            comm.Parameters.AddWithValue("@userName", userName);
+
+
+            DataSet ds = new DataSet();
+
+            // create the adapter and fill the DataSet
+
+            // 
+            OleDbDataAdapter adapter =
+             new OleDbDataAdapter(comm);
+            adapter.Fill(ds);
+            conn.Close();
+            System.Data.DataTable dt = ds.Tables[0];
+
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                //  MessageBox.Show((dr["username"].ToString()));
+
+                Userright = (bool)dr["Loadmakepalletick"];
+            }
+
+            return Userright;
+
+
+
+
+
+
+
+
+        }
+
+        public static bool getPrintLoadinvoiceRight()
+        {
+
+
+            bool Userright = false;
+            string connection_string = Utils.getAccessConnectionstring();
+            string userName = Utils.getUsername();
+
+            OleDbConnection conn = new OleDbConnection(connection_string);
+            conn.Open();
+
+
+            string StringQuery = @"Select tbl_Temp.PrintLoadinvoice from  tbl_Temp where tbl_Temp.username = @userName";//, @Customer_Code )"; //'%test%'
+
+
+            OleDbCommand comm = new OleDbCommand(StringQuery, conn);
+
+            //ADD PARAMS
+
+
+            comm.Parameters.AddWithValue("@userName", userName);
+
+
+            DataSet ds = new DataSet();
+
+            // create the adapter and fill the DataSet
+
+            // 
+            OleDbDataAdapter adapter =
+             new OleDbDataAdapter(comm);
+            adapter.Fill(ds);
+            conn.Close();
+            System.Data.DataTable dt = ds.Tables[0];
+
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                //  MessageBox.Show((dr["username"].ToString()));
+
+                Userright = (bool)dr["PrintLoadinvoice"];
+            }
+
+            return Userright;
+
+
+
+
+
+
+
+
+        }
+
+
+        public static bool getSettlementRight()
+        {
+
+
+            bool Userright = false;
+            string connection_string = Utils.getAccessConnectionstring();
+            string userName = Utils.getUsername();
+
+            OleDbConnection conn = new OleDbConnection(connection_string);
+            conn.Open();
+
+
+            string StringQuery = @"Select tbl_Temp.Settlement from  tbl_Temp where tbl_Temp.username = @userName";//, @Customer_Code )"; //'%test%'
+
+
+            OleDbCommand comm = new OleDbCommand(StringQuery, conn);
+
+            //ADD PARAMS
+
+
+            comm.Parameters.AddWithValue("@userName", userName);
+
+
+            DataSet ds = new DataSet();
+
+            // create the adapter and fill the DataSet
+
+            // 
+            OleDbDataAdapter adapter =
+             new OleDbDataAdapter(comm);
+            adapter.Fill(ds);
+            conn.Close();
+            System.Data.DataTable dt = ds.Tables[0];
+
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                //  MessageBox.Show((dr["username"].ToString()));
+
+                Userright = (bool)dr["Settlement"];
+            }
+
+            return Userright;
+
+
+
+
+
+
+
+
+        }
+
+        public static bool getMasterDataRight()
+        {
+
+
+            bool Userright = false;
+            string connection_string = Utils.getAccessConnectionstring();
+            string userName = Utils.getUsername();
+
+            OleDbConnection conn = new OleDbConnection(connection_string);
+            conn.Open();
+
+
+            string StringQuery = @"Select tbl_Temp.MasterData from  tbl_Temp where tbl_Temp.username = @userName";//, @Customer_Code )"; //'%test%'
+
+
+            OleDbCommand comm = new OleDbCommand(StringQuery, conn);
+
+            //ADD PARAMS
+
+
+            comm.Parameters.AddWithValue("@userName", userName);
+
+
+            DataSet ds = new DataSet();
+
+            // create the adapter and fill the DataSet
+
+            // 
+            OleDbDataAdapter adapter =
+             new OleDbDataAdapter(comm);
+            adapter.Fill(ds);
+            conn.Close();
+            System.Data.DataTable dt = ds.Tables[0];
+
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                //  MessageBox.Show((dr["username"].ToString()));
+
+                Userright = (bool)dr["MasterData"];
+            }
+
+            return Userright;
+
+
+
+
+
+
+
+
+        }
+
+        public static bool getUsersetupRight()
+        {
+
+
+            bool Userright = false;
+            string connection_string = Utils.getAccessConnectionstring();
+            string userName = Utils.getUsername();
+
+            OleDbConnection conn = new OleDbConnection(connection_string);
+            conn.Open();
+
+
+            string StringQuery = @"Select tbl_Temp.Usersetup from  tbl_Temp where tbl_Temp.username = @userName";//, @Customer_Code )"; //'%test%'
+
+
+            OleDbCommand comm = new OleDbCommand(StringQuery, conn);
+
+            //ADD PARAMS
+
+
+            comm.Parameters.AddWithValue("@userName", userName);
+
+
+            DataSet ds = new DataSet();
+
+            // create the adapter and fill the DataSet
+
+            // 
+            OleDbDataAdapter adapter =
+             new OleDbDataAdapter(comm);
+            adapter.Fill(ds);
+            conn.Close();
+            System.Data.DataTable dt = ds.Tables[0];
+
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                //  MessageBox.Show((dr["username"].ToString()));
+
+                Userright = (bool)dr["Usersetup"];
+            }
+
+            return Userright;
+
+
+
+
+
+
+
+
+        }
+        
 
         public static string getUsername()
         {

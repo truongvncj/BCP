@@ -235,6 +235,12 @@
     <Compile Include="View\BCPorderviewotiom.Designer.cs">
       <DependentUpon>BCPorderviewotiom.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\BCPCuscodeandateselect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BCPCuscodeandateselect.Designer.cs">
+      <DependentUpon>BCPCuscodeandateselect.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\SetCustGroup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -439,6 +445,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\BCPorderviewotiom.resx">
       <DependentUpon>BCPorderviewotiom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BCPCuscodeandateselect.resx">
+      <DependentUpon>BCPCuscodeandateselect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SetCustGroup.resx">
       <DependentUpon>SetCustGroup.cs</DependentUpon>

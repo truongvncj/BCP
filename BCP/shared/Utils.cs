@@ -242,7 +242,7 @@ namespace BCP
 
 
   
-        public static bool doQuerywithdata(string Query)
+        public static bool doQuerywithAcessdata(string Query)
         {
           //  string username = Utils.getUsername();
             string connection_string = Utils.getAccessConnectionstring();
@@ -268,27 +268,27 @@ namespace BCP
 
 
                 int temp = comm.ExecuteNonQuery();
+                return true;
+                //if (temp > 0)
 
-                if (temp > 0)
+                //{
 
-                {
-                 
 
-                    //then the data saved successfully
-                    //conn.Close();
-                    conn.Close();
-                    return true;
-                }
+                //    //then the data saved successfully
+                //    //conn.Close();
+                //    conn.Close();
+                //    return true;
+                //}
 
-                else
+                //else
 
-                {
-                    // MessageBox.Show("Do Nothing !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conn.Close();
-                    return false;
-                    //it did not save
+                //{
+                //    // MessageBox.Show("Do Nothing !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    conn.Close();
+                //    return false;
+                //    //it did not save
 
-                }
+                //}
             }
             catch (Exception ex)
             {

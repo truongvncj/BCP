@@ -2305,6 +2305,13 @@ namespace BCP.View
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
+
+            if (Model.UsernameInfor.getUsersetupRight() == false)
+            {
+                View.BCPNoouthourise view1 = new BCPNoouthourise();
+                view1.ShowDialog();
+                return;
+            }
             string conString = Utils.getAccessConnectionstring();
 
 
@@ -2328,7 +2335,7 @@ namespace BCP.View
 
 
 
-            View.BCPViewdatatable view = new BCPViewdatatable(dt, "USERNAME AND RIGHT SET UP ");
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "USERNAME AND RIGHT SET UP");
             view.ShowDialog();
 
 
@@ -2403,7 +2410,13 @@ namespace BCP.View
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-          //  BCPreportsform
+            if (Model.UsernameInfor.getMasterDataRight() == false)
+            {
+                View.BCPNoouthourise view = new BCPNoouthourise();
+                view.ShowDialog();
+                return;
+            }
+            //  BCPreportsform
 
             FormCollection fc = System.Windows.Forms.Application.OpenForms;
 
@@ -2714,7 +2727,7 @@ namespace BCP.View
                 View.BCPreportsform BCPreportsform = new View.BCPreportsform();
 
 
-                BCPreportsform.ShowDialog();
+                BCPreportsform.Show();
             }
 
         }
@@ -2722,6 +2735,13 @@ namespace BCP.View
         private void pic_ordercreate_Click(object sender, EventArgs e)
         {
             // BCPArrelease
+            if (Model.UsernameInfor.getOrderEntryRight() == false)
+            {
+                View.BCPNoouthourise view = new BCPNoouthourise();
+                view.ShowDialog();
+                return;
+            }    
+
             FormCollection fc = System.Windows.Forms.Application.OpenForms;
 
             bool kq = false;
@@ -2747,7 +2767,12 @@ namespace BCP.View
 
         private void pic_arrelease_Click(object sender, EventArgs e)
         {
-
+            if (Model.UsernameInfor.getARreleaseRight() == false)
+            {
+                View.BCPNoouthourise view = new BCPNoouthourise();
+                view.ShowDialog();
+                return;
+            }
             // BCPShipmentCreate
             FormCollection fc = System.Windows.Forms.Application.OpenForms;
 
@@ -2784,6 +2809,12 @@ namespace BCP.View
 
         private void pic_shipmentcreate_Click(object sender, EventArgs e)
         {
+            if (Model.UsernameInfor.getLoadmakepalletickRight() == false)
+            {
+                View.BCPNoouthourise view = new BCPNoouthourise();
+                view.ShowDialog();
+                return;
+            }
             // BCPPrintIvoiceLoad
             FormCollection fc = System.Windows.Forms.Application.OpenForms;
 
@@ -2810,6 +2841,12 @@ namespace BCP.View
 
         private void pic_printinvoice_Click(object sender, EventArgs e)
         {
+            if (Model.UsernameInfor.getPrintLoadinvoiceRight() == false)
+            {
+                View.BCPNoouthourise view = new BCPNoouthourise();
+                view.ShowDialog();
+                return;
+            }
             // DataCapture
             FormCollection fc = System.Windows.Forms.Application.OpenForms;
 
@@ -2831,6 +2868,16 @@ namespace BCP.View
 
 
                 BCPPrintIvoiceLoad.ShowDialog();
+            }
+        }
+
+        private void pictureBox1_Click_2(object sender, EventArgs e)
+        {
+            if (Model.UsernameInfor.getSettlementRight() == false)
+            {
+                View.BCPNoouthourise view = new BCPNoouthourise();
+                view.ShowDialog();
+                return;
             }
         }
     }

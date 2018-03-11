@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>5.39521in</Width>
+              <Width>5.80146in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -305,6 +305,9 @@
                           <Height>0.21181in</Height>
                           <Width>1.23958in</Width>
                           <ZIndex>9</ZIndex>
+                          <Visibility>
+                            <Hidden>true</Hidden>
+                          </Visibility>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -354,7 +357,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>1.78125in</Height>
+              <Height>1.53125in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -367,8 +370,9 @@
                               <Value>=Fields!IDpage.Value</Value>
                             </Parameter>
                           </Parameters>
-                          <Top>0.11806in</Top>
-                          <Height>1.59375in</Height>
+                          <Top>0.12153in</Top>
+                          <Left>0.04334in</Left>
+                          <Height>0.82292in</Height>
                           <Width>3.79151in</Width>
                           <Style>
                             <Border>
@@ -377,13 +381,15 @@
                           </Style>
                         </Subreport>
                       </ReportItems>
+                      <PageBreak>
+                        <BreakLocation>End</BreakLocation>
+                      </PageBreak>
                       <Style>
                         <Border>
                           <Style>None</Style>
                         </Border>
                       </Style>
                     </Rectangle>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -408,10 +414,13 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
+        <PageBreak>
+          <BreakLocation>End</BreakLocation>
+        </PageBreak>
         <Top>0.11334in</Top>
         <Left>0.06292in</Left>
-        <Height>4.97032in</Height>
-        <Width>5.39521in</Width>
+        <Height>4.72031in</Height>
+        <Width>5.80146in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -419,18 +428,17 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>5.08366in</Height>
+    <Height>4.83365in</Height>
     <Style>
       <Border>
-        <Color>White</Color>
         <Style>None</Style>
       </Border>
     </Style>
   </Body>
-  <Width>5.45813in</Width>
+  <Width>5.86438in</Width>
   <Page>
     <PageFooter>
-      <Height>0.21181in</Height>
+      <Height>1.08177in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -443,7 +451,7 @@
                 <TextRun>
                   <Value>=User!UserID</Value>
                   <Style>
-                    <FontSize>6pt</FontSize>
+                    <FontSize>7pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -454,7 +462,7 @@
           <Top>0.04167in</Top>
           <Left>0.06156in</Left>
           <Height>0.17014in</Height>
-          <Width>2.375in</Width>
+          <Width>1.125in</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -465,33 +473,27 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="ExecutionTime">
+        <Textbox Name="Textbox1">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Globals!ExecutionTime</Value>
+                  <Value>=Globals!PageNumber &amp; "/ " &amp; Globals!TotalPages</Value>
                   <Style>
-                    <FontSize>6pt</FontSize>
-                  </Style>
-                </TextRun>
-                <TextRun>
-                  <Value xml:space="preserve"> </Value>
-                  <Style>
-                    <FontSize>6pt</FontSize>
+                    <FontSize>7pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>ExecutionTime</rd:DefaultName>
-          <Top>0.04167in</Top>
-          <Left>4.11414in</Left>
-          <Height>0.17014in</Height>
-          <Width>1.11458in</Width>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>0.05556in</Top>
+          <Left>4.56042in</Left>
+          <Height>0.15625in</Height>
+          <Width>1.0625in</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>

@@ -120,3 +120,4 @@ D:\GitHub\BCP\BCP\bin\x86\Debug\ru\Microsoft.SqlServer.Types.resources.dll
 D:\GitHub\BCP\BCP\bin\x86\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
 D:\GitHub\BCP\BCP\bin\x86\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
 D:\GitHub\BCP\BCP\obj\x86\Debug\BCP.View.BCPDatepick.resources
+D:\GitHub\BCP\BCP\obj\x86\Debug\BCP.View.BCPCuscodeandateselect.resources

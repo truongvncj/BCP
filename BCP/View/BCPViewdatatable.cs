@@ -33,9 +33,14 @@ namespace BCP.View
             this.lbcount.Text = tbl.Rows.Count.ToString();
             //   valuecode = "0";
             chon = false;
+            btupdate.Visible = false;
 
-
-
+            if (fornname == "USERNAME AND RIGHT SET UP")
+            {
+                btupdate.Visible = true;
+                dataGridView1.ReadOnly = false;
+                dataGridView1.AllowUserToAddRows = true;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -85,6 +90,238 @@ namespace BCP.View
 
 
             ctrex.exportdatagriddatatabletofile(this.tbl, this.fornname);
+
+        }
+
+        private void btupdate_Click(object sender, EventArgs e)
+        {
+            string tblnamesub = "tbl_Temp";
+            string IDsub = "ID"; //lấy cot ID là cột id mốc
+
+            #region // update datagridview to database    source1.EndEdit();
+
+
+
+            foreach (DataGridViewRow r in dataGridView1.Rows)
+            {
+
+                if (r.Cells[IDsub].Value != null)
+                {
+
+
+                    var indexvalue = int.Parse(r.Cells[IDsub].Value.ToString());
+                    //      var kq = source1.Find(IDsub, indexvalue);
+                    #region     if (indexvalue != 0) //neewu co tron view khong co trong dataa == add vao dat ta
+
+                    if (indexvalue != 0) //neewu co tron view khong co trong dataa == add vao dat ta
+                    {
+                        //var bk = new tblEDLP();
+
+                        string stringfield = "";
+                        //    string stringvalue = "";
+
+                        int idculum = this.dataGridView1.ColumnCount;
+
+                        for (int idculumid = 0; idculumid < idculum; idculumid++)
+                        {
+                            var colheadertext = this.dataGridView1.Columns[idculumid].HeaderText;
+                            var colname = this.dataGridView1.Columns[idculumid].HeaderText;
+
+                            var valueid = r.Cells[colheadertext].Value;
+
+                            if (valueid != null && colheadertext != IDsub)
+                            {
+
+                                var IDType = r.Cells[colheadertext].ValueType;
+
+                                if (colheadertext.Contains("_"))
+                                {
+                                    colheadertext = colheadertext.Replace("_", " ");
+                                    string temp = "[" + colheadertext + "]";
+                                    colheadertext = temp;
+                                }
+
+                                //Boolean || IDType.ToString().Contains("Bool")
+
+                                if (IDType.ToString().Contains("String"))
+                                {
+
+                                    valueid = "'" + valueid + "'";
+                                }
+
+
+
+                                if (IDType.ToString().Contains("Date"))
+                                {
+
+                                    valueid = "#" + valueid + "#";
+                                }
+
+                                if (stringfield != "")
+                                {
+
+                                    stringfield = tblnamesub + "." + colname + " = " + valueid + "," + stringfield;
+
+                                }
+                                else
+                                {
+                                    stringfield = tblnamesub + "." + colname + " = " + valueid;
+
+
+                                }
+
+
+
+                            }
+
+                        } // for
+                        string StrQuery = "update " + tblnamesub +
+                                 " set " + stringfield +
+                                 " where " + tblnamesub + ".id =" + indexvalue; // + dataGridView1.Rows[r.Index].Cells["ColumnName"].Value + ", " + dataGridView1.Rows[r.Index].Cells["ColumnName"].Value + ");";
+
+
+
+                        bool kqq1 = Utils.doQuerywithAcessdata(StrQuery);
+                        //  db.ExecuteCommand(StrQuery);
+                        // db.SubmitChanges();
+
+                        if (kqq1 == false)
+                        {
+                            MessageBox.Show(StrQuery);
+                            return;
+                        }
+
+
+                    }
+                    #endregion
+                }
+
+
+            }
+
+
+
+            #endregion//update datagridview to database
+
+
+
+            #region        // insert cac dong  khong co trong gridview khong co cos tron data
+
+
+            foreach (DataGridViewRow r in dataGridView1.Rows)
+            {
+
+                if (r.Cells[IDsub].Value != null)
+                {
+
+
+                    var indexvalue = int.Parse(r.Cells[IDsub].Value.ToString());
+                    //      var kq = source1.Find(IDsub, indexvalue);
+
+                    if (indexvalue == 0) //neewu co tron view khong co trong dataa == add vao dat ta
+                    {
+                        //var bk = new tblEDLP();
+
+                        string stringfield = "";
+                        string stringvalue = "";
+
+                        int idculum = this.dataGridView1.ColumnCount;
+
+                        for (int idculumid = 0; idculumid < idculum; idculumid++)
+                        {
+                            var colheadertext = this.dataGridView1.Columns[idculumid].HeaderText;
+                            var colname = this.dataGridView1.Columns[idculumid].Name;
+
+                            var valueid = r.Cells[colheadertext].Value;
+
+                            if (valueid != null && colheadertext != IDsub)
+                            {
+
+                                var IDType = r.Cells[colheadertext].ValueType;
+
+                                if (colheadertext.Contains("_"))
+                                {
+                                    colheadertext = colheadertext.Replace("_", " ");
+                                    string temp = "[" + colheadertext + "]";
+                                    colheadertext = temp;
+                                }
+
+                                // || IDType.ToString().Contains("Bool")
+                                if (IDType.ToString().Contains("String"))
+                                {
+
+                                    valueid = "'" + valueid + "'";
+                                }
+
+
+
+                                if (IDType.ToString().Contains("Date"))
+                                {
+
+                                    valueid = "'" + valueid + "'";
+                                }
+
+                                if (stringvalue != "")
+                                {
+
+                                    stringvalue = stringvalue + "," + valueid;
+                                    stringfield = stringfield + "," + colheadertext;
+
+                                }
+                                else
+                                {
+                                    stringvalue = stringvalue + valueid;
+
+                                    stringfield = stringfield + colname;
+
+                                }
+
+
+
+                            }
+
+
+
+
+                        }
+
+
+
+                        string StrQuery = "INSERT INTO " + tblnamesub + " ( " + stringfield + " ) VALUES (" + stringvalue + ")"; // + dataGridView1.Rows[r.Index].Cells["ColumnName"].Value + ", " + dataGridView1.Rows[r.Index].Cells["ColumnName"].Value + ");";
+
+                        bool kqq2 = Utils.doQuerywithAcessdata(StrQuery);
+                        //  db.ExecuteCommand(StrQuery);
+                        // db.SubmitChanges();
+
+                        if (kqq2 == false)
+                        {
+                            MessageBox.Show(StrQuery);
+                            return;
+                        }
+
+
+
+
+                    }
+
+
+
+
+
+                }
+
+
+
+            }
+            #endregion foreach
+
+            MessageBox.Show("Data update done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
+
+
+
 
         }
     }

@@ -43,8 +43,8 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button7 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.bttinhgiaallcode = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -212,7 +212,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button7);
+            this.groupBox1.Controls.Add(this.bttinhgiaallcode);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox1.Location = new System.Drawing.Point(20, 134);
             this.groupBox1.Name = "groupBox1";
@@ -220,18 +220,6 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Price Reports";
-            // 
-            // button7
-            // 
-            this.button7.ForeColor = System.Drawing.Color.Red;
-            this.button7.Location = new System.Drawing.Point(6, 34);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(233, 22);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "Price of all code on selected date";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button2
             // 
@@ -244,6 +232,18 @@
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // bttinhgiaallcode
+            // 
+            this.bttinhgiaallcode.ForeColor = System.Drawing.Color.Red;
+            this.bttinhgiaallcode.Location = new System.Drawing.Point(6, 34);
+            this.bttinhgiaallcode.Name = "bttinhgiaallcode";
+            this.bttinhgiaallcode.Size = new System.Drawing.Size(233, 22);
+            this.bttinhgiaallcode.TabIndex = 7;
+            this.bttinhgiaallcode.Text = "Price of all code on selected date";
+            this.bttinhgiaallcode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bttinhgiaallcode.UseVisualStyleBackColor = true;
+            this.bttinhgiaallcode.Click += new System.EventHandler(this.button7_Click);
             // 
             // BCPreportsform
             // 
@@ -276,7 +276,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button bttinhgiaallcode;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox1;
