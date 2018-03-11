@@ -1,0 +1,230 @@
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Caculating.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.DatePicker.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Depositconfirmline.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.filteroption.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.fRM_AROPTION.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.fromdate.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Login.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.PrintLetterOption.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Seachcode.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Serversetup.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.valueinput.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.VInputchange.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Reportsview.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Viewtable.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Main.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.csproj.GenerateResource.Cache
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\RdlCompile.cache
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\RdlCompile.compiled
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\bin\x86\Debug\KAmanagement.exe.config
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\bin\x86\Debug\Reports\ARletter.rdlc
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\bin\x86\Debug\KAmanagement.exe
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\bin\x86\Debug\KAmanagement.pdb
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\bin\x86\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\bin\x86\Debug\stdole.dll
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.Properties.Resources.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.exe
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.pdb
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.csprojResolveAssemblyReference.cache
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KAmasterinput.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.SetGroupFrom.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KAcontractlisting.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KASeachcontract.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.CreatenewContract.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kaPriodpicker.resources
+C:\Users\TRUONG\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Kasalesuploadandreports.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\bin\x86\Debug\KAmanagement.exe.config
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.exe
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.pdb
+E:\Desktop\Developing product\KAmanagement\KAmanagement\bin\x86\Debug\KAmanagement.exe
+E:\Desktop\Developing product\KAmanagement\KAmanagement\bin\x86\Debug\KAmanagement.pdb
+E:\Desktop\Developing product\KAmanagement\KAmanagement\bin\x86\Debug\Microsoft.ReportViewer.WinForms.dll
+E:\Desktop\Developing product\KAmanagement\KAmanagement\bin\x86\Debug\stdole.dll
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.csprojResolveAssemblyReference.cache
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Caculating.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Kasalesuploadandreports.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KAcontractlisting.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.CreatenewContract.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KAmasterinput.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kaPriodpicker.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Login.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.PrintLetterOption.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KASeachcontract.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Seachcode.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Serversetup.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.SetGroupFrom.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.valueinput.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.VInputchange.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Reportsview.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Viewtable.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Main.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.Properties.Resources.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.csproj.GenerateResource.Cache
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\RdlCompile.cache
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\RdlCompile.compiled
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kaPriodmake.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kareportsform.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\bin\x86\Debug\Reports\PaymentRequest.rdlc
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.CreatnewCust.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Createpayment.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kaconfirmPayment.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Datepick.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kapricingcheck.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Viewdatatable.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Passwordchange.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Noouthourise.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.SetCustGroup.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.EditContractItem.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kAuserRightsetup.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.selectinput.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KafromtoSelect.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KaconvertProductdetail.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kamassCofirm.resources
+E:\Desktop\Developing product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kamasscontractChange.resources
+D:\Product\KAmanagement\KAmanagement\bin\x86\Debug\KAmanagement.exe.config
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.exe
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.pdb
+D:\Product\KAmanagement\KAmanagement\bin\x86\Debug\Reports\PaymentRequest.rdlc
+D:\Product\KAmanagement\KAmanagement\bin\x86\Debug\KAmanagement.exe
+D:\Product\KAmanagement\KAmanagement\bin\x86\Debug\KAmanagement.pdb
+D:\Product\KAmanagement\KAmanagement\bin\x86\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\Product\KAmanagement\KAmanagement\bin\x86\Debug\stdole.dll
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.csprojResolveAssemblyReference.cache
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Caculating.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.EditContractItem.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Createpayment.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.CreatnewCust.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KaconvertProductdetail.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KafromtoSelect.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kamasscontractChange.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kamassCofirm.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kAuserRightsetup.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Noouthourise.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Passwordchange.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.SetCustGroup.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.selectinput.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Viewdatatable.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kapricingcheck.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kaconfirmPayment.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kaPriodmake.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kareportsform.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Kasalesuploadandreports.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KAcontractlisting.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.CreatenewContract.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Datepick.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KAmasterinput.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kaPriodpicker.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Login.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.PrintLetterOption.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KASeachcontract.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Seachcode.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Serversetup.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.SetGroupFrom.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.valueinput.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.VInputchange.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Reportsview.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Viewtable.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Main.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.Properties.Resources.resources
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.csproj.GenerateResource.Cache
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\RdlCompile.cache
+D:\Product\KAmanagement\KAmanagement\obj\x86\Debug\RdlCompile.compiled
+E:\Product\KAmanagement\KAmanagement\bin\x86\Debug\KAmanagement.exe.config
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.exe
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.pdb
+E:\Product\KAmanagement\KAmanagement\bin\x86\Debug\Reports\PaymentRequest.rdlc
+E:\Product\KAmanagement\KAmanagement\bin\x86\Debug\KAmanagement.exe
+E:\Product\KAmanagement\KAmanagement\bin\x86\Debug\KAmanagement.pdb
+E:\Product\KAmanagement\KAmanagement\bin\x86\Debug\Microsoft.ReportViewer.WinForms.dll
+E:\Product\KAmanagement\KAmanagement\bin\x86\Debug\stdole.dll
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.csprojResolveAssemblyReference.cache
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Caculating.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.EditContractItem.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Createpayment.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.CreatnewCust.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KaconvertProductdetail.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KafromtoSelect.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kamasscontractChange.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kamassCofirm.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kAuserRightsetup.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Noouthourise.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Passwordchange.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.SetCustGroup.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.selectinput.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Viewdatatable.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kapricingcheck.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kaconfirmPayment.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kaPriodmake.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kareportsform.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Kasalesuploadandreports.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KAcontractlisting.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.CreatenewContract.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Datepick.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KAmasterinput.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kaPriodpicker.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Login.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.PrintLetterOption.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KASeachcontract.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Seachcode.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Serversetup.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.SetGroupFrom.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.valueinput.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.VInputchange.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Reportsview.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Viewtable.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Main.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.Properties.Resources.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.csproj.GenerateResource.Cache
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\RdlCompile.cache
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\RdlCompile.compiled
+D:\GitHub\KAmanagement\KAmanagement\bin\x86\Debug\KAmanagement.exe.config
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.exe
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.pdb
+D:\GitHub\KAmanagement\KAmanagement\bin\x86\Debug\Reports\PaymentRequest.rdlc
+D:\GitHub\KAmanagement\KAmanagement\bin\x86\Debug\KAmanagement.exe
+D:\GitHub\KAmanagement\KAmanagement\bin\x86\Debug\KAmanagement.pdb
+D:\GitHub\KAmanagement\KAmanagement\bin\x86\Debug\stdole.dll
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.csprojResolveAssemblyReference.cache
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Caculating.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.EditContractItem.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Createpayment.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.CreatnewCust.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KaconvertProductdetail.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KafromtoSelect.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kamasscontractChange.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kamassCofirm.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kAuserRightsetup.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Noouthourise.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Passwordchange.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.SetCustGroup.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.selectinput.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Viewdatatable.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kapricingcheck.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kaconfirmPayment.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kaPriodmake.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kareportsform.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Kasalesuploadandreports.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KAcontractlisting.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.CreatenewContract.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Datepick.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KAmasterinput.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.kaPriodpicker.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Login.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.PrintLetterOption.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KASeachcontract.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Seachcode.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Serversetup.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.SetGroupFrom.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.valueinput.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.VInputchange.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Reportsview.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Viewtable.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Main.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.Properties.Resources.resources
+D:\GitHub\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.csproj.GenerateResource.Cache
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.masscreateContract.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.KASeachaddcode.resources
+E:\Product\KAmanagement\KAmanagement\obj\x86\Debug\KAmanagement.View.Kainputaddcode.resources
+D:\GitHub\BCP\KAmanagement\bin\x86\Debug\KAmanagement.exe.config
+D:\GitHub\BCP\KAmanagement\obj\x86\Debug\KAmanagement.exe
+D:\GitHub\BCP\KAmanagement\obj\x86\Debug\KAmanagement.pdb
