@@ -255,47 +255,104 @@ namespace BCP.View
                 DataTable dt = ds.Tables[0];
                 // close the connection
 
+                string Product_Code = "";
+                string Product_Name = "";
+                string Product_group = "";
+                string Customer_Code = "";
+                string Key_Account_No = "";
 
+                string PriceList = "";
+                string Sales_Region = "";
+                string Sales_District = "";
+                double Baseprice = 0;
+                double Promotion_discount = 0;
+                double Function_discount = 0;
+                double Surcharge = 0;
+                double Netprice = 0;
+
+                #region  make table to add data
+                DataTable reportdata = new DataTable();
+
+                reportdata.Columns.Add(new DataColumn("Customer_Code", typeof(string)));
+                reportdata.Columns.Add(new DataColumn("Product_Code", typeof(double)));
+                reportdata.Columns.Add(new DataColumn("Product_Name", typeof(string)));
+                reportdata.Columns.Add(new DataColumn("Baseprice", typeof(Boolean)));
+                reportdata.Columns.Add(new DataColumn("Promotion_discount", typeof(Boolean)));
+                reportdata.Columns.Add(new DataColumn("Function_discount", typeof(Boolean)));
+                reportdata.Columns.Add(new DataColumn("Surcharge", typeof(Boolean)));
+                reportdata.Columns.Add(new DataColumn("Netprice", typeof(Boolean)));
+
+
+                #endregion make table to add data
                 foreach (DataRow dr in dt.Rows)
                 {
                     // dataGridetailorder.Rows[idrow].Cells["Product_Name"].Value 
 
-                    string productCode = dr["product_code"].ToString();
-                    string productname = dr["product_Name"].ToString();
-                    string product_group = dr["product_group"].ToString();
-
-
-                                        // OleDbConnection conn = new OleDbConnection(conString);
-                                        conn.Open();
-
-                                        DataSet ds1 = new DataSet();
-
-                                        // create the adapter and fill the DataSet
-                                        OleDbDataAdapter adapter1 =
-                                         new OleDbDataAdapter("SELECT * FROM tbl_list_customer where tbl_list_customer.Custype = 'V001'", conn);
-                                        adapter1.Fill(ds1);
-                                        conn.Close();
-                                        DataTable dt1 = ds1.Tables[0];
-                                        // close the connection
-
-
-                                        foreach (DataRow dr1 in dt1.Rows)
-                                        {
+                    Product_Code = dr["product_code"].ToString();
+                    Product_Name = dr["product_Name"].ToString();
+                    Product_group = dr["product_group"].ToString();
 
 
 
 
-                                        }
+
+                    // OleDbConnection conn = new OleDbConnection(conString);
+                    conn.Open();
+
+                    DataSet ds1 = new DataSet();
+
+                    // create the adapter and fill the DataSet
+                    OleDbDataAdapter adapter1 =
+                     new OleDbDataAdapter("SELECT * FROM tbl_list_customer where tbl_list_customer.Custype = 'V001'", conn);
+                    adapter1.Fill(ds1);
+                    conn.Close();
+                    DataTable dt1 = ds1.Tables[0];
+                    // close the connection
 
 
-                                        
+                    foreach (DataRow dr1 in dt1.Rows)
+                    {
+
+                        Customer_Code = dr1["Customer_Code"].ToString();
+                        Key_Account_No = dr1["Key_Account_No"].ToString();
+                        PriceList = dr1["PriceList"].ToString();
+                        Sales_Region = dr1["sales_region"].ToString();
+                        Sales_District = dr1["Sales_district"].ToString();
+
+                        Baseprice = Model.Orders.getBasePrice(Product_Code, Customer_Code, Sales_Region, valuedate);
+
+                        if (Baseprice > 0) // nếu có giá base thì mới tính
+                        {
+
+
+                            Promotion_discount = Model.Orders.getDiscount(1, Product_Code, Customer_Code, Sales_Region, Key_Account_No, Baseprice, valuedate);//1 là promotion 2 là fung tion / 3 là sỏ chacr
+                            Function_discount = Model.Orders.getDiscount(2, Product_Code, Customer_Code, Sales_Region, Key_Account_No, Baseprice, valuedate);//1 là promotion 2 là fung tion / 3 là sỏ chacr
+                            Surcharge = Model.Orders.getDiscount(3, Product_Code, Customer_Code, Sales_Region, Key_Account_No, Baseprice, valuedate);//1 là promotion 2 là fung tion / 3 là sỏ chacr
+                            Netprice = Baseprice + Promotion_discount + Function_discount + Surcharge;
+
+                            DataRow rnew = reportdata.Rows.Add();
+                            rnew["Customer_Code"] = Customer_Code;
+                            rnew["Product_Code"] = Product_Code;
+                            rnew["Product_Name"] = Product_Name;
+                            rnew["Baseprice"] = Baseprice;
+                            rnew["Promotion_discount"] = Promotion_discount;
+                            rnew["Function_discount"] = Function_discount;
+                            rnew["Surcharge"] = Surcharge;
+                            rnew["Netprice"] = Netprice;
+
+                        }
+
+                    }
+
+
+
                 }
 
 
 
 
-                //  View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH SẢN PHẨM ");
-                //    view.ShowDialog();
+                View.BCPViewdatatable view = new BCPViewdatatable(reportdata, "DANH SÁCH GIÁ CHI TIẾT THEO TỪNG CODE KHÁCH HÀNG !");
+                view.ShowDialog();
 
 
 
@@ -499,6 +556,11 @@ namespace BCP.View
 
             View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH SHIPMENT WITH STATUS");
             view.ShowDialog();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
