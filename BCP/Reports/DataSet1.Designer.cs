@@ -392,6 +392,16 @@ namespace BCP.Reports {
             
             private global::System.Data.DataColumn columnCust_name;
             
+            private global::System.Data.DataColumn columnPalletcode;
+            
+            private global::System.Data.DataColumn columnPalletname;
+            
+            private global::System.Data.DataColumn columnPalletQuantity;
+            
+            private global::System.Data.DataColumn columnTranpostername;
+            
+            private global::System.Data.DataColumn columnTruckno;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public PalletticketheadDataTable() {
@@ -459,6 +469,46 @@ namespace BCP.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PalletcodeColumn {
+                get {
+                    return this.columnPalletcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PalletnameColumn {
+                get {
+                    return this.columnPalletname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PalletQuantityColumn {
+                get {
+                    return this.columnPalletQuantity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TranposternameColumn {
+                get {
+                    return this.columnTranpostername;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TrucknoColumn {
+                get {
+                    return this.columnTruckno;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -494,13 +544,18 @@ namespace BCP.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PalletticketheadRow AddPalletticketheadRow(string Shipment, string OrderNumber, string Cust_code, string Cust_name) {
+            public PalletticketheadRow AddPalletticketheadRow(string Shipment, string OrderNumber, string Cust_code, string Cust_name, string Palletcode, string Palletname, short PalletQuantity, string Tranpostername, string Truckno) {
                 PalletticketheadRow rowPalletticketheadRow = ((PalletticketheadRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Shipment,
                         OrderNumber,
                         Cust_code,
-                        Cust_name};
+                        Cust_name,
+                        Palletcode,
+                        Palletname,
+                        PalletQuantity,
+                        Tranpostername,
+                        Truckno};
                 rowPalletticketheadRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPalletticketheadRow);
                 return rowPalletticketheadRow;
@@ -527,6 +582,11 @@ namespace BCP.Reports {
                 this.columnOrderNumber = base.Columns["OrderNumber"];
                 this.columnCust_code = base.Columns["Cust_code"];
                 this.columnCust_name = base.Columns["Cust_name"];
+                this.columnPalletcode = base.Columns["Palletcode"];
+                this.columnPalletname = base.Columns["Palletname"];
+                this.columnPalletQuantity = base.Columns["PalletQuantity"];
+                this.columnTranpostername = base.Columns["Tranpostername"];
+                this.columnTruckno = base.Columns["Truckno"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -540,6 +600,16 @@ namespace BCP.Reports {
                 base.Columns.Add(this.columnCust_code);
                 this.columnCust_name = new global::System.Data.DataColumn("Cust_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCust_name);
+                this.columnPalletcode = new global::System.Data.DataColumn("Palletcode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPalletcode);
+                this.columnPalletname = new global::System.Data.DataColumn("Palletname", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPalletname);
+                this.columnPalletQuantity = new global::System.Data.DataColumn("PalletQuantity", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPalletQuantity);
+                this.columnTranpostername = new global::System.Data.DataColumn("Tranpostername", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTranpostername);
+                this.columnTruckno = new global::System.Data.DataColumn("Truckno", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTruckno);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1822,6 +1892,86 @@ namespace BCP.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Palletcode {
+                get {
+                    try {
+                        return ((string)(this[this.tablePallettickethead.PalletcodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Palletcode\' in table \'Pallettickethead\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePallettickethead.PalletcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Palletname {
+                get {
+                    try {
+                        return ((string)(this[this.tablePallettickethead.PalletnameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Palletname\' in table \'Pallettickethead\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePallettickethead.PalletnameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public short PalletQuantity {
+                get {
+                    try {
+                        return ((short)(this[this.tablePallettickethead.PalletQuantityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PalletQuantity\' in table \'Pallettickethead\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePallettickethead.PalletQuantityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Tranpostername {
+                get {
+                    try {
+                        return ((string)(this[this.tablePallettickethead.TranposternameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Tranpostername\' in table \'Pallettickethead\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePallettickethead.TranposternameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Truckno {
+                get {
+                    try {
+                        return ((string)(this[this.tablePallettickethead.TrucknoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Truckno\' in table \'Pallettickethead\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePallettickethead.TrucknoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsShipmentNull() {
                 return this.IsNull(this.tablePallettickethead.ShipmentColumn);
             }
@@ -1866,6 +2016,66 @@ namespace BCP.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCust_nameNull() {
                 this[this.tablePallettickethead.Cust_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPalletcodeNull() {
+                return this.IsNull(this.tablePallettickethead.PalletcodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPalletcodeNull() {
+                this[this.tablePallettickethead.PalletcodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPalletnameNull() {
+                return this.IsNull(this.tablePallettickethead.PalletnameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPalletnameNull() {
+                this[this.tablePallettickethead.PalletnameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPalletQuantityNull() {
+                return this.IsNull(this.tablePallettickethead.PalletQuantityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPalletQuantityNull() {
+                this[this.tablePallettickethead.PalletQuantityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTranposternameNull() {
+                return this.IsNull(this.tablePallettickethead.TranposternameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTranposternameNull() {
+                this[this.tablePallettickethead.TranposternameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTrucknoNull() {
+                return this.IsNull(this.tablePallettickethead.TrucknoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTrucknoNull() {
+                this[this.tablePallettickethead.TrucknoColumn] = global::System.Convert.DBNull;
             }
         }
         
