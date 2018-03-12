@@ -121,6 +121,23 @@ namespace BCP.View
                 if (result > 0)
                 {
 
+                    //        int Ver = user.Version;
+                    if (ver == 62)
+                    {
+
+                        this.Hide();
+                        View.Main main = new Main(); //
+                        main.Closed += (s, args) => this.Close();
+                        main.Show();
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("You are using old version \n please use the new KA Version: " + ver.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        this.Close();
+
+                        return;
+                    }
 
 
 
@@ -156,24 +173,7 @@ namespace BCP.View
 
 
                 //        Model.Username user = new Model.Username();
-                //        int Ver = user.Version;
-                if (ver == 62)
-                {
-
-                    this.Hide();
-                    View.Main main = new Main(); //
-                    main.Closed += (s, args) => this.Close();
-                    main.Show();
-                }
-                else
-                {
-
-                    MessageBox.Show("You are using old version \n please use the new KA Version: " + ver.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    this.Close();
-
-
-                }
-
+              
 
             }
         }

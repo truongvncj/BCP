@@ -582,16 +582,17 @@ group by
                 //   First(tbl_list_Order.Sold_to_pt)AS Cust_code,
                 //First(tbl_list_Order.Name_pt) AS Cust_name
 
-                string StringQuery = @"Select First( tbl_list_Order.Shipment) AS Shipment ,
-                                First( tbl_list_Order.Sold_to_pt) AS Cust_code ,
-                                    First( tbl_list_Order.Name_pt) AS Cust_name ,
-                                        First( tbl_list_Order.Document) AS OrderNumber
+                string StringQuery = @"Select First( tbl_list_Ordershipment.Shipment) AS Shipment ,
+                                First( tbl_list_Ordershipment.DescriptionPallet) AS Palletname ,
+   First( tbl_list_Ordershipment.MaterialPallet) AS Palletcode ,
+                                    First( tbl_list_Ordershipment.amountPallet) AS PalletQuantity ,
+    First( tbl_list_Ordershipment.Transposterby) AS Tranpostername ,
+                                        First( tbl_list_Ordershipment.TruckNumber) AS Truckno
 
 
-from  tbl_list_Order where 
-                                tbl_list_Order.Shipment = @Shipment 
-                                    Group by 
-                                    tbl_list_Order.Document
+from  tbl_list_Ordershipment where 
+                                tbl_list_Ordershipment.Shipment = @Shipment 
+                                
                                                "; //head of ticket
 
                 OleDbCommand comm = new OleDbCommand(StringQuery, conn);
@@ -609,6 +610,46 @@ from  tbl_list_Order where
                 DataTable dataset1 = ds.Tables[0];
                 //   gripOrdertomakeload.DataSource = dataset1; // detail ??
                 #endregion // heard shipment
+
+
+//                #region //    DataTable dataset1 = ut.ToDataTable(dc, rs1); head shipment ticket
+//                string connection_string = Utils.getAccessConnectionstring();
+
+//                OleDbConnection conn = new OleDbConnection(connection_string);
+//                conn.Open();
+
+//                //First(tbl_list_Order.Document) AS Order,
+//                //   First(tbl_list_Order.Sold_to_pt)AS Cust_code,
+//                //First(tbl_list_Order.Name_pt) AS Cust_name
+
+//                string StringQuery = @"Select First( tbl_list_Order.Shipment) AS Shipment ,
+//                                First( tbl_list_Order.Sold_to_pt) AS Cust_code ,
+//                                    First( tbl_list_Order.Name_pt) AS Cust_name ,
+//                                        First( tbl_list_Order.Document) AS OrderNumber
+
+
+//from  tbl_list_Order where 
+//                                tbl_list_Order.Shipment = @Shipment 
+//                                    Group by 
+//                                    tbl_list_Order.Document
+//                                               "; //head of ticket
+
+//                OleDbCommand comm = new OleDbCommand(StringQuery, conn);
+//                //ADD PARAMS
+//                comm.Parameters.AddWithValue("@Shipment", ValueText);
+//                DataSet ds = new DataSet();
+
+//                // create the adapter and fill the DataSet
+
+//                // 
+//                OleDbDataAdapter adapter =
+//                 new OleDbDataAdapter(comm);
+//                adapter.Fill(ds);
+//                conn.Close();
+//                DataTable dataset1 = ds.Tables[0];
+//                //   gripOrdertomakeload.DataSource = dataset1; // detail ??
+//                #endregion // heard shipment
+
 
                 #region  //  DataTable dataset2 = ut.ToDataTable(dc, rs2); detail shipment ticket
                 //  string connection_string = Utils.getAccessConnectionstring();
