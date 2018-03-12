@@ -2335,7 +2335,7 @@ namespace BCP.View
 
 
 
-            View.BCPViewdatatable view = new BCPViewdatatable(dt, "USERNAME AND RIGHT SET UP");
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "USERNAME AND RIGHT SET UP","ID", "tbl_Temp");
             view.ShowDialog();
 
 

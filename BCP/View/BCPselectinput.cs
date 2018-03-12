@@ -68,7 +68,8 @@ namespace BCP.View
                 this.valuetext = (cbselect.SelectedItem as ComboboxItem).Value.ToString();
                 this.field = this.label1.Text;
                 this.kq = true;
-                this.Hide();
+                this.Close();
+
 
             }
             else

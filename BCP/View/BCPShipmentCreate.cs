@@ -350,7 +350,7 @@ namespace BCP.View
             #endregion new table
 
             ReloadordertoShipment("", "", "");
-      
+
             #endregion
 
 
@@ -684,20 +684,53 @@ namespace BCP.View
         {
             if (int.Parse(lb_shipmentNo.Text.ToString()) == 0)// tạo shipment
             {
-
-
-                #region  update tbl order
+                
+                //    tbl_list_Ordershipment
+                
                 if (dtorderToshipment.Rows.Count > 0)
                 {
+                    string shippingpoint = (cb_shipingpoint.SelectedItem as ComboboxItem).Value.ToString();
+                    BCPshipmentcreateoption optioncreate = new View.BCPshipmentcreateoption(shippingpoint);
+
+                    optioncreate.ShowDialog();
+
+                    bool luachon = optioncreate.kq;
+                    if (luachon == false)
+                    {
+                        return;
+                    }
+
+                    string truckno = optioncreate.truckno;
+                    string transportername = optioncreate.transportername;
+                    string palletcode = optioncreate.palletcode;
+                    string palletname = optioncreate.palletname;
+                    int palletQuantity = 0;
+                    try
+                    {
+                         palletQuantity = optioncreate.palletQuantity;
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        return;
+                    }
+                  
+
+
+                     
+                    #region  update tbl order
                     string ShipmenttempNo = Model.Shipment.getShipmentnumbertemp();
                     lb_shipmentNo.Text = ShipmenttempNo;
+                    string connection_string = Utils.getAccessConnectionstring();
+                    OleDbConnection conn = new OleDbConnection(connection_string);
+                    string username = Utils.getUsername();
 
                     foreach (DataRow dr in this.dtorderToshipment.Rows)
                     {
 
-                        string connection_string = Utils.getAccessConnectionstring();
-                        OleDbConnection conn = new OleDbConnection(connection_string);
-                        string username = Utils.getUsername();
+                      
                         //   string StringQuery = "Delete from tbl_list_Order where tbl_list_Order.Document = @Ordernumber";
                         conn.Open();
 
@@ -733,9 +766,41 @@ namespace BCP.View
                     }
                     #endregion
 
-                    #region  inser tbl shipment
+                    #region   // inserpallet tbl_list_Ordershipment
+                    conn.Open();
 
-                    #endregion
+                    string StringQuery3 = @"INSERT INTO tbl_list_Ordershipment(  Shipment,   MaterialPallet, DescriptionPallet , amountPallet , TruckNumber ,Transposterby  ) 
+                                                                  VALUES (  @Shipment,   @MaterialPallet, @DescriptionPallet , @amountPallet , @TruckNumber, @Transposterby ) ";
+                    OleDbCommand comm3 = new OleDbCommand(StringQuery3, conn);
+
+
+
+                    comm3.Parameters.AddWithValue("@Shipment", ShipmenttempNo);
+                    comm3.Parameters.AddWithValue("@MaterialPallet", palletcode);
+                    comm3.Parameters.AddWithValue("@DescriptionPallet", palletname);
+                    comm3.Parameters.AddWithValue("@amountPallet", palletQuantity);
+                    comm3.Parameters.AddWithValue("@TruckNumber", truckno);
+                    comm3.Parameters.AddWithValue("@Transposterby", transportername);
+
+
+                    try
+                    {
+                        int temp = comm3.ExecuteNonQuery();
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                        //  throw;
+                    }
+
+                    conn.Close();
+
+
+
+                    #endregion  //inserpallet tbl_list_Ordershipment
 
                     MessageBox.Show("Shipment : " + ShipmenttempNo + "  Create successfully !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

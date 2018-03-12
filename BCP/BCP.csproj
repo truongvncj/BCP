@@ -139,6 +139,12 @@
     <Compile Include="shared\ExtractToDataTableOptions.cs" />
     <Compile Include="shared\LinQToExcel.cs" />
     <Compile Include="shared\StringExtensions.cs" />
+    <Compile Include="View\BCPshipmentcreateoption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BCPshipmentcreateoption.Designer.cs">
+      <DependentUpon>BCPshipmentcreateoption.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\BCPPrintIvoiceLoad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -396,6 +402,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Palletticket.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BCPshipmentcreateoption.resx">
+      <DependentUpon>BCPshipmentcreateoption.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\BCPPrintIvoiceLoad.resx">
       <DependentUpon>BCPPrintIvoiceLoad.cs</DependentUpon>

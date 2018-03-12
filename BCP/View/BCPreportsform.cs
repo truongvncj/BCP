@@ -121,7 +121,7 @@ namespace BCP.View
 
 
 
-            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH KHÁCH HÀNG ");
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH KHÁCH HÀNG","ID", "tbl_list_customer");
             view.ShowDialog();
 
 
@@ -176,7 +176,7 @@ namespace BCP.View
 
 
 
-            View.BCPViewdatatable view = new BCPViewdatatable(dt, "LIST ORDER WITH STATUS");
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "LIST ORDER WITH STATUS","","");
             view.ShowDialog();
 
 
@@ -214,7 +214,7 @@ namespace BCP.View
 
 
 
-            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH SẢN PHẨM ");
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH SẢN PHẨM","ID", "tbl_list_product");
             view.ShowDialog();
 
 
@@ -367,7 +367,7 @@ namespace BCP.View
 
 
 
-            View.BCPViewdatatable view = new BCPViewdatatable(reportdata, "DANH SÁCH GIÁ CHI TIẾT THEO TỪNG CODE KHÁCH HÀNG !");
+            View.BCPViewdatatable view = new BCPViewdatatable(reportdata, "DANH SÁCH GIÁ CHI TIẾT THEO TỪNG CODE KHÁCH HÀNG !","","");
             view.ShowDialog();
 
 
@@ -401,13 +401,16 @@ namespace BCP.View
                 Thread t1 = new Thread(exportAll2sexcelprice);
                 t1.IsBackground = true;
                 t1.Start(new datainportFx2() { valuedate = valuedate });
-
                 
-
-
-
             }
 
+
+            //if (kq) // nếu chọn bắt đầu tính toán  giá
+            //{
+            //    Thread t1 = new Thread(exporxtPrice);
+            //    t1.IsBackground = true;
+            //    t1.Start(new datainportFx() { Customer_Code = Customer_Code, Sales_Region = Sales_Region, valuedate = valuedate });
+            //}
         }
 
 
@@ -457,7 +460,7 @@ namespace BCP.View
 
 
 
-            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH BASE PRICE ");
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH BASE PRICE","","");
             view.ShowDialog();
         }
 
@@ -487,7 +490,7 @@ namespace BCP.View
 
 
 
-            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH PROMOTION PROGRAM ");
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH PROMOTION PROGRAM","","");
             view.ShowDialog();
 
         }
@@ -518,7 +521,7 @@ namespace BCP.View
 
 
 
-            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH FUNCTION DISCOUNT ");
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH FUNCTION DISCOUNT","","");
             view.ShowDialog();
         }
 
@@ -548,7 +551,7 @@ namespace BCP.View
 
 
 
-            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH SURCHARGE DISCOUNT ");
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH SURCHARGE DISCOUNT","","");
             view.ShowDialog();
         }
 
@@ -593,7 +596,7 @@ namespace BCP.View
 
 
 
-            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH SHIPMENT WITH STATUS");
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH SHIPMENT WITH STATUS","","");
             view.ShowDialog();
         }
 
@@ -726,7 +729,7 @@ namespace BCP.View
 
 
 
-            View.BCPViewdatatable view2 = new BCPViewdatatable(reportdata, "BẢNG GIÁ CỦA CODE :" + Customer_Code + " Ngày : " + valuedate.ToShortDateString());
+            View.BCPViewdatatable view2 = new BCPViewdatatable(reportdata, "BẢNG GIÁ CỦA CODE :" + Customer_Code + " Ngày : " + valuedate.ToShortDateString(),"","");
             view2.ShowDialog();
 
 
@@ -743,7 +746,7 @@ namespace BCP.View
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-
+            btgetpriceoncode.Enabled = false;
             View.BCPCuscodeandateselect view = new BCPCuscodeandateselect();
             view.ShowDialog();
 

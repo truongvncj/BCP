@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BCPViewdatatable));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btupdate = new System.Windows.Forms.Button();
             this.lbcount = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.bt_exporttoex = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
-            this.btupdate = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -53,8 +53,20 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Location = new System.Drawing.Point(3, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1216, 502);
+            this.panel1.Size = new System.Drawing.Size(1216, 521);
             this.panel1.TabIndex = 0;
+            // 
+            // btupdate
+            // 
+            this.btupdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btupdate.Location = new System.Drawing.Point(1010, 479);
+            this.btupdate.Name = "btupdate";
+            this.btupdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btupdate.Size = new System.Drawing.Size(87, 20);
+            this.btupdate.TabIndex = 21;
+            this.btupdate.Text = "Update data";
+            this.btupdate.UseVisualStyleBackColor = true;
+            this.btupdate.Click += new System.EventHandler(this.btupdate_Click);
             // 
             // lbcount
             // 
@@ -116,23 +128,11 @@
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // btupdate
-            // 
-            this.btupdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btupdate.Location = new System.Drawing.Point(1012, 479);
-            this.btupdate.Name = "btupdate";
-            this.btupdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btupdate.Size = new System.Drawing.Size(87, 20);
-            this.btupdate.TabIndex = 21;
-            this.btupdate.Text = "Update data";
-            this.btupdate.UseVisualStyleBackColor = true;
-            this.btupdate.Click += new System.EventHandler(this.btupdate_Click);
-            // 
             // BCPViewdatatable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1221, 509);
+            this.ClientSize = new System.Drawing.Size(1221, 528);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

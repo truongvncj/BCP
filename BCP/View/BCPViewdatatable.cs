@@ -19,14 +19,21 @@ namespace BCP.View
         public bool chon { get; set; }
         public DataTable tbl { get; set; }
 
-        public BCPViewdatatable(DataTable tbl, string fornname)
+        public string idcolumName { get; set; }
+        public string tblname { get; set; }
+
+
+
+
+        public BCPViewdatatable(DataTable tbl, string fornname, string idcolumName, string tblname)
         {
             InitializeComponent();
 
             label7.Text = fornname;
             this.fornname = fornname;
             this.tbl = tbl;
-            //System.Data.DataTable dt = new System.Data.DataTable();
+            this.idcolumName = idcolumName;
+            this.tblname = tblname;
             //dt = tbl;
 
             this.dataGridView1.DataSource = tbl;
@@ -35,11 +42,13 @@ namespace BCP.View
             chon = false;
             btupdate.Visible = false;
 
-            if (fornname == "USERNAME AND RIGHT SET UP")
+            if (fornname == "list pallet" || fornname == "Transpoter list" || fornname == "LIST SHIPPING POINT" || fornname == "DANH SÁCH KHÁCH HÀNG" || fornname == "USERNAME AND RIGHT SET UP"|| fornname == "LIST SALES REGION" || fornname == "DANH SÁCH SẢN PHẨM")
             {
                 btupdate.Visible = true;
                 dataGridView1.ReadOnly = false;
                 dataGridView1.AllowUserToAddRows = true;
+
+
             }
         }
 
@@ -95,8 +104,8 @@ namespace BCP.View
 
         private void btupdate_Click(object sender, EventArgs e)
         {
-            string tblnamesub = "tbl_Temp";
-            string IDsub = "ID"; //lấy cot ID là cột id mốc
+            string tblnamesub = this.tblname;
+            string IDsub = this.idcolumName; //lấy cot ID là cột id mốc
 
             #region // update datagridview to database    source1.EndEdit();
 

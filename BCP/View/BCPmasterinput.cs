@@ -1052,7 +1052,7 @@ namespace BCP.View
 
 
 
-            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH KHÁCH HÀNG ");
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH KHÁCH HÀNG ","","");
             view.ShowDialog();
 
 
@@ -1084,7 +1084,7 @@ namespace BCP.View
 
 
 
-            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH SẢN PHẨM ");
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH SẢN PHẨM","ID", "tbl_list_product");
             view.ShowDialog();
 
 
@@ -1125,7 +1125,7 @@ namespace BCP.View
 
 
 
-            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH BASE PRICE ");
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH BASE PRICE","","");
             view.ShowDialog();
 
         }
@@ -1162,7 +1162,7 @@ namespace BCP.View
 
 
 
-            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH PROMOTION PROGRAM ");
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH PROMOTION PROGRAM","","");
             view.ShowDialog();
 
         }
@@ -1193,7 +1193,7 @@ namespace BCP.View
 
 
 
-            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH FUNCTION DISCOUNT ");
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH FUNCTION DISCOUNT","","");
             view.ShowDialog();
         }
 
@@ -1223,7 +1223,7 @@ namespace BCP.View
 
 
 
-            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH SURCHARGE DISCOUNT ");
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH SURCHARGE DISCOUNT","","");
             view.ShowDialog();
         }
 
@@ -1250,7 +1250,14 @@ namespace BCP.View
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (Model.UsernameInfor.getDeleteAllOrderRight() == false)
+            {
+                View.BCPNoouthourise view1 = new BCPNoouthourise();
+                view1.ShowDialog();
+                return;
 
+
+            }
 
             bool kq1 = Utils.deleteAccesstable("tbl_list_Order");
             bool kq2 = Utils.deleteAccesstable("tbl_list_Ordershipment");
@@ -1261,6 +1268,126 @@ namespace BCP.View
             }
 
 
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            string conString = Utils.getAccessConnectionstring();
+
+
+            // create an open the connection     
+            OleDbConnection conn = new OleDbConnection(conString);
+            conn.Open();
+
+
+            //   OleDbDataAdapter1.SelectCommand.CommandText = "SELECT * FROM tbl_Temp WHERE username = @Username AND password = @Password";
+            // string Query1 = "SELECT * FROM tbl_Temp WHERE username = '" + textBox1.Text + "' AND password = '" + textBox2.Text+"'";
+            // create the DataSet
+            DataSet ds = new DataSet();
+
+            // create the adapter and fill the DataSet
+            OleDbDataAdapter adapter =
+             new OleDbDataAdapter("SELECT * FROM tbl_salesRegionList", conn);
+            adapter.Fill(ds);
+            conn.Close();
+            DataTable dt = ds.Tables[0];
+            // close the connection
+
+
+
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "LIST SALES REGION","ID", "tbl_salesRegionList");
+            view.ShowDialog();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            string conString = Utils.getAccessConnectionstring();
+
+
+            // create an open the connection     
+            OleDbConnection conn = new OleDbConnection(conString);
+            conn.Open();
+
+
+            //   OleDbDataAdapter1.SelectCommand.CommandText = "SELECT * FROM tbl_Temp WHERE username = @Username AND password = @Password";
+            // string Query1 = "SELECT * FROM tbl_Temp WHERE username = '" + textBox1.Text + "' AND password = '" + textBox2.Text+"'";
+            // create the DataSet
+            DataSet ds = new DataSet();
+
+            // create the adapter and fill the DataSet
+            OleDbDataAdapter adapter =
+             new OleDbDataAdapter("SELECT * FROM tbl_shipingointList", conn);
+            adapter.Fill(ds);
+            conn.Close();
+            DataTable dt = ds.Tables[0];
+            // close the connection
+
+
+
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "LIST SHIPPING POINT", "ID", "tbl_shipingointList");
+            view.ShowDialog();
+
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string conString = Utils.getAccessConnectionstring();
+
+
+            // create an open the connection     
+            OleDbConnection conn = new OleDbConnection(conString);
+            conn.Open();
+
+
+            //   OleDbDataAdapter1.SelectCommand.CommandText = "SELECT * FROM tbl_Temp WHERE username = @Username AND password = @Password";
+            // string Query1 = "SELECT * FROM tbl_Temp WHERE username = '" + textBox1.Text + "' AND password = '" + textBox2.Text+"'";
+            // create the DataSet
+            DataSet ds = new DataSet();
+
+            // create the adapter and fill the DataSet
+            OleDbDataAdapter adapter =
+             new OleDbDataAdapter("SELECT * FROM tbl_list_product_Pallet", conn);
+            adapter.Fill(ds);
+            conn.Close();
+            DataTable dt = ds.Tables[0];
+            // close the connection
+
+
+
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "list pallet", "ID", "tbl_list_product_Pallet");
+            view.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string conString = Utils.getAccessConnectionstring();
+
+
+            // create an open the connection     
+            OleDbConnection conn = new OleDbConnection(conString);
+            conn.Open();
+
+
+            //   OleDbDataAdapter1.SelectCommand.CommandText = "SELECT * FROM tbl_Temp WHERE username = @Username AND password = @Password";
+            // string Query1 = "SELECT * FROM tbl_Temp WHERE username = '" + textBox1.Text + "' AND password = '" + textBox2.Text+"'";
+            // create the DataSet
+            DataSet ds = new DataSet();
+
+            // create the adapter and fill the DataSet
+            OleDbDataAdapter adapter =
+             new OleDbDataAdapter("SELECT * FROM tbl_Transpoterlist", conn);
+            adapter.Fill(ds);
+            conn.Close();
+            DataTable dt = ds.Tables[0];
+            // close the connection
+
+
+
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "Transpoter list", "ID", "tbl_Transpoterlist");
+            view.ShowDialog();
         }
     }
 }

@@ -43,7 +43,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btgetpriceoncode = new System.Windows.Forms.Button();
             this.bttinhgiaallcode = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -211,7 +211,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btgetpriceoncode);
             this.groupBox1.Controls.Add(this.bttinhgiaallcode);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox1.Location = new System.Drawing.Point(20, 134);
@@ -221,17 +221,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Price Reports";
             // 
-            // button2
+            // btgetpriceoncode
             // 
-            this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(9, 74);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(233, 22);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Price of ONE code on selected date";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.btgetpriceoncode.ForeColor = System.Drawing.Color.Red;
+            this.btgetpriceoncode.Location = new System.Drawing.Point(9, 74);
+            this.btgetpriceoncode.Name = "btgetpriceoncode";
+            this.btgetpriceoncode.Size = new System.Drawing.Size(233, 22);
+            this.btgetpriceoncode.TabIndex = 8;
+            this.btgetpriceoncode.Text = "Price of ONE code on selected date";
+            this.btgetpriceoncode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btgetpriceoncode.UseVisualStyleBackColor = true;
+            this.btgetpriceoncode.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // bttinhgiaallcode
             // 
@@ -286,6 +286,6 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btgetpriceoncode;
     }
 }

@@ -463,7 +463,60 @@ namespace BCP.Model
 
 
         }
-        
+
+        //DeleteAllOrder
+        public static bool getDeleteAllOrderRight()
+        {
+
+
+            bool Userright = false;
+            string connection_string = Utils.getAccessConnectionstring();
+            string userName = Utils.getUsername();
+
+            OleDbConnection conn = new OleDbConnection(connection_string);
+            conn.Open();
+
+
+            string StringQuery = @"Select tbl_Temp.DeleteAllOrder from  tbl_Temp where tbl_Temp.username = @userName";//, @Customer_Code )"; //'%test%'
+
+
+            OleDbCommand comm = new OleDbCommand(StringQuery, conn);
+
+            //ADD PARAMS
+
+
+            comm.Parameters.AddWithValue("@userName", userName);
+
+
+            DataSet ds = new DataSet();
+
+            // create the adapter and fill the DataSet
+
+            // 
+            OleDbDataAdapter adapter =
+             new OleDbDataAdapter(comm);
+            adapter.Fill(ds);
+            conn.Close();
+            System.Data.DataTable dt = ds.Tables[0];
+
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                //  MessageBox.Show((dr["username"].ToString()));
+
+                Userright = (bool)dr["DeleteAllOrder"];
+            }
+
+            return Userright;
+
+
+
+
+
+
+
+
+        }
 
         public static string getUsername()
         {

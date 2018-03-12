@@ -790,7 +790,7 @@ namespace BCP.View
 
 
 
-            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH ĐƠN ĐẶT HÀNG");
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH ĐƠN ĐẶT HÀNG","","");
             view.ShowDialog();
 
 

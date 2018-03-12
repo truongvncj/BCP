@@ -34,7 +34,8 @@ namespace BCP.View
             //  if (accrualdate >= DateTime.Today)
             // {
             kq = true;
-                this.Hide();
+            this.Close();
+
             //}
 
 
