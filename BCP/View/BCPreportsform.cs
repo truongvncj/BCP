@@ -233,9 +233,16 @@ namespace BCP.View
         public void exportAll2sexcelprice(object obj)
         {
 
+         //   dateacrrual dat = (dateacrrual)Objdateacrrual;
 
-        
-            DateTime valuedate = (obj as datainportFx2).valuedate;
+        //    DateTime Accrualdate = dat.Accrualdate;
+
+            datainportFx2 datetemp = (datainportFx2)obj;
+
+               DateTime valuedate = (datetemp).valuedate;
+
+
+            //    DateTime valuedate = (DateTime)(obj as datainportFx2).valuedate;
 
 
 
@@ -600,11 +607,13 @@ namespace BCP.View
         }
         public void exporxtPrice(object obj)
         {
+            datainportFx datetemp = (datainportFx)obj;
 
+           // DateTime valuedate = (datetemp).valuedate;
 
-            string Customer_Code = (obj as datainportFx).Customer_Code;
-            string Sales_Region = (obj as datainportFx).Sales_Region;
-            DateTime valuedate = (obj as datainportFx).valuedate;
+            string Customer_Code = datetemp.Customer_Code;
+            string Sales_Region = datetemp.Sales_Region;
+            DateTime valuedate = datetemp.valuedate;
 
 
 

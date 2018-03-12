@@ -190,7 +190,7 @@ namespace BCP.View
         //    string connection_string = Utils.getConnectionstr();
 
         //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-            
+
         //    var typeff = typeof(tbl_kacontractbegindata);
 
         //    VInputchange inputcdata = new VInputchange("", "LIST MASTER DATA CONTRACTS ", dc, "tbl_kacontractbegindata", "tbl_kacontractbegindata", typeff, typeff, "id", "id", "");
@@ -702,7 +702,7 @@ namespace BCP.View
                 //      cmd1.Parameters.Add("@name", SqlDbType.VarChar).Value = userupdate;
                 cmd1.CommandTimeout = 0;
                 rdr1 = cmd1.ExecuteReader();
-                
+
                 MessageBox.Show("Fill name done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
@@ -746,7 +746,7 @@ namespace BCP.View
             //    Thread.Sleep(1999);
             //    t2.Abort();
 
-                
+
             //}
 
 
@@ -899,7 +899,7 @@ namespace BCP.View
                 DateTime Fromdate = KafromtoSelect.fromdate;
                 DateTime Todate = KafromtoSelect.todate;
                 Boolean choose = KafromtoSelect.choose;
-             //   KafromtoSelect.Close();
+                //   KafromtoSelect.Close();
 
                 #region// update pc, uc, ..
 
@@ -948,7 +948,7 @@ namespace BCP.View
 
 
 
-              
+
 
 
                 //string priod = kaPriodpicker.priod;
@@ -1021,9 +1021,9 @@ namespace BCP.View
             customerinput_ctrl udatecust = new customerinput_ctrl();
             udatecust.customerinputpriceingupdate();
 
-         //   Thread t1 = new Thread(updateprcustfrompricecust);
-       //     t1.IsBackground = true;
-       //     t1.Start();
+            //   Thread t1 = new Thread(updateprcustfrompricecust);
+            //     t1.IsBackground = true;
+            //     t1.Start();
 
         }
 
@@ -1049,7 +1049,7 @@ namespace BCP.View
             conn.Close();
             DataTable dt = ds.Tables[0];
             // close the connection
-         
+
 
 
             View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH KHÁCH HÀNG ");
@@ -1245,6 +1245,21 @@ namespace BCP.View
         {
             Control.PriceCheck.PriceRawUpload upload = new Control.PriceCheck.PriceRawUpload();
             upload.inputpromotionpricelist(3); //' 1 là promotion' 2 là function , 3 là surcharge
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+            bool kq1 = Utils.deleteAccesstable("tbl_list_Order");
+            bool kq2 = Utils.deleteAccesstable("tbl_list_Ordershipment");
+            if (kq1 & kq2)
+            {
+                MessageBox.Show("OK Done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+
 
         }
     }
