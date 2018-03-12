@@ -1042,8 +1042,8 @@ namespace BCP.View
                     //   string StringQuery = "Delete from tbl_list_Order where tbl_list_Order.Document = @Ordernumber";
                     conn.Open();
 
-                    string StringQuery = @"INSERT INTO tbl_list_Order( Created_by,   Plant, sales_region , Purchase_order_number, Address , DlvDate ,Document , Sold_to_pt, Name_pt, Material ,Description ,Order_qty ,fRECASSE ,Shipto ,ShiptoName,ShippingPoint, CreateDate , Unit  , amount , EmptyCode , Emptyname , EmptyUnit , BasePrice , PromotionDiscount , FuntionDiscount , SurchargeDiscount, KeyAccount, ProducGroup) 
-                                    VALUES ( @Created_by,   @Plant, @sales_region , @Purchase_order_number, @Address , @DlvDate ,@Document , @Sold_to_pt, @Name_pt, @Material ,@Description ,@Order_qty ,@fRECASSE ,@Shipto ,@ShiptoName,@ShippingPoint, @CreateDate, @Unit, @amount , @EmptyCode, @Emptyname, @EmptyUnit, @BasePrice , @PromotionDiscount, @FuntionDiscount, @SurchargeDiscount, @KeyAccount, @ProducGroup ) ";
+                    string StringQuery = @"INSERT INTO tbl_list_Order( Created_by,   Plant, sales_region , Purchase_order_number, Address , DlvDate ,Document , Sold_to_pt, Name_pt, Material ,Description ,Order_qty ,fRECASSE ,Shipto ,ShiptoName,ShippingPoint, CreateDate , Unit  , amount , EmptyCode , Emptyname , EmptyUnit , BasePrice , PromotionDiscount , FuntionDiscount , SurchargeDiscount, KeyAccount, ProducGroup, totalAmount) 
+                                    VALUES ( @Created_by,   @Plant, @sales_region , @Purchase_order_number, @Address , @DlvDate ,@Document , @Sold_to_pt, @Name_pt, @Material ,@Description ,@Order_qty ,@fRECASSE ,@Shipto ,@ShiptoName,@ShippingPoint, @CreateDate, @Unit, @amount , @EmptyCode, @Emptyname, @EmptyUnit, @BasePrice , @PromotionDiscount, @FuntionDiscount, @SurchargeDiscount, @KeyAccount, @ProducGroup, @totalAmount ) ";
                     OleDbCommand comm = new OleDbCommand(StringQuery, conn);
 
                     string productCode = dataGridetailorder.Rows[idrow].Cells["Product_Code"].Value.ToString().Trim();
@@ -1067,7 +1067,8 @@ namespace BCP.View
 
                     comm.Parameters.AddWithValue("@Material", productCode);
                     comm.Parameters.AddWithValue("@Description", dataGridetailorder.Rows[idrow].Cells["Product_Name"].Value.ToString());
-                    comm.Parameters.AddWithValue("@Order_qty", int.Parse(dataGridetailorder.Rows[idrow].Cells["Amount"].Value.ToString()));// number
+                    int QuantityPro = int.Parse(dataGridetailorder.Rows[idrow].Cells["Amount"].Value.ToString());
+                    comm.Parameters.AddWithValue("@Order_qty", QuantityPro);// number
                     comm.Parameters.AddWithValue("@fRECASSE", dataGridetailorder.Rows[idrow].Cells["FreeCase"].Value);  //FreeCase
                     comm.Parameters.AddWithValue("@Shipto", int.Parse(txtshipto.Text.ToString())); // numbar
 
@@ -1087,10 +1088,11 @@ namespace BCP.View
                     double PromotionDiscountAmount = Model.Orders.getDiscount(PromotionID, productCode, custCode, salesRegion, keyAccount, basePrice, dlvDate);
                     double FunntionDiscountamount = Model.Orders.getDiscount(FunntionDiscountCode, productCode, custCode, salesRegion, keyAccount, basePrice, dlvDate);
                     double SurchargeDiscounamount = Model.Orders.getDiscount(SurchargeDiscountID, productCode, custCode, salesRegion, keyAccount, basePrice, dlvDate);
+                    double netPrice = basePrice + PromotionDiscountAmount + FunntionDiscountamount + SurchargeDiscounamount;
+                    double amounttotal = QuantityPro * netPrice * 1.1;
 
-
-                    comm.Parameters.AddWithValue("@amount", basePrice+ PromotionDiscountAmount+ FunntionDiscountamount + SurchargeDiscounamount); // numbar
-                                                                                                                                     // EmptyCode
+                    comm.Parameters.AddWithValue("@amount", netPrice); // numbar
+                                                                       // EmptyCode
                     comm.Parameters.AddWithValue("@EmptyCode", Model.Product.productEmptycode(productCode)); // numbar
                     comm.Parameters.AddWithValue("@Emptyname", Model.Product.productEmptyName(productCode)); // numbar
                     // EmptyUnit  BasePrice KeyAccount
@@ -1103,6 +1105,7 @@ namespace BCP.View
 
                     string ProducGroup = Model.Product.getProducgroupCode(productCode);
                     comm.Parameters.AddWithValue("@ProducGroup", ProducGroup); // numbar
+                    comm.Parameters.AddWithValue("@totalAmount", amounttotal); // numbar
 
 
 

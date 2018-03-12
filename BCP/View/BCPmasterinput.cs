@@ -1254,7 +1254,7 @@ namespace BCP.View
 
             bool kq1 = Utils.deleteAccesstable("tbl_list_Order");
             bool kq2 = Utils.deleteAccesstable("tbl_list_Ordershipment");
-            if (kq1 & kq2)
+            if (kq1==true & kq2==true)
             {
                 MessageBox.Show("OK Done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

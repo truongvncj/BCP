@@ -39,7 +39,7 @@ namespace BCP.View
 
             ///???????????????????????
 
-            string StringQuery = @"Select First(tbl_list_Order.ID) as ID,   tbl_list_Order.Document ,  First( tbl_list_Order.Sold_to_pt) as Sold_to,  First( tbl_list_Order.Name_pt ) as Name, First(tbl_list_Order.totalAmount ) as TotalAmount from  tbl_list_Order where tbl_list_Order.AR_release = @AR_release and  tbl_list_Order.Document   like @Document and tbl_list_Order.Name_pt like @Name_pt and tbl_list_Order.Sold_to_pt like @Sold_to_pt GROUP BY    tbl_list_Order.Document ";
+            string StringQuery = @"Select First(tbl_list_Order.ID) as ID,   tbl_list_Order.Document ,  First( tbl_list_Order.Sold_to_pt) as Sold_to,  First( tbl_list_Order.Name_pt ) as Name, sum(tbl_list_Order.totalAmount ) as TotalAmount from  tbl_list_Order where tbl_list_Order.AR_release = @AR_release and  tbl_list_Order.Document   like @Document and tbl_list_Order.Name_pt like @Name_pt and tbl_list_Order.Sold_to_pt like @Sold_to_pt GROUP BY    tbl_list_Order.Document ";
 
             OleDbCommand comm = new OleDbCommand(StringQuery, conn);
 
@@ -80,7 +80,7 @@ namespace BCP.View
             conn.Open();
 
 
-            string StringQuery = @"Select First(tbl_list_Order.ID) as ID,   tbl_list_Order.Document ,  First( tbl_list_Order.Sold_to_pt) as Sold_to,  First( tbl_list_Order.Name_pt ) as Name, First(tbl_list_Order.totalAmount ) as TotalAmount from  tbl_list_Order where tbl_list_Order.AR_release = @AR_release and  tbl_list_Order.Document   like @Document and tbl_list_Order.Name_pt like @Name_pt and tbl_list_Order.Sold_to_pt like @Sold_to_pt GROUP BY    tbl_list_Order.Document ";
+            string StringQuery = @"Select First(tbl_list_Order.ID) as ID,   tbl_list_Order.Document ,  First( tbl_list_Order.Sold_to_pt) as Sold_to,  First( tbl_list_Order.Name_pt ) as Name, sum(tbl_list_Order.totalAmount ) as TotalAmount from  tbl_list_Order where tbl_list_Order.AR_release = @AR_release and  tbl_list_Order.Document   like @Document and tbl_list_Order.Name_pt like @Name_pt and tbl_list_Order.Sold_to_pt like @Sold_to_pt GROUP BY    tbl_list_Order.Document ";
 
             OleDbCommand comm = new OleDbCommand(StringQuery, conn);
 

@@ -241,10 +241,10 @@ namespace BCP
         }
 
 
-  
+
         public static bool doQuerywithAcessdata(string Query)
         {
-          //  string username = Utils.getUsername();
+            //  string username = Utils.getUsername();
             string connection_string = Utils.getAccessConnectionstring();
 
 
@@ -327,27 +327,29 @@ namespace BCP
 
 
                 int temp = comm.ExecuteNonQuery();
+                conn.Close();
+                return true;
+                //if (temp > 0)
 
-                if (temp > 0)
+                //{
+                //    // MessageBox.Show("Password Change !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                {
-                    // MessageBox.Show("Password Change !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    //then the data saved successfully
+                //    //conn.Close();
+                //    conn.Close();
 
-                    //then the data saved successfully
-                    //conn.Close();
-                    conn.Close();
-                    return true;
-                }
+                //}
 
-                else
+                //else
 
-                {
-                    //MessageBox.Show("Please check old password !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conn.Close();
-                    return false;
-                    //it did not save
+                //{
+                //    //MessageBox.Show("Please check old password !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    conn.Close();
+                //    return false;
+                //    //it did not save
 
-                }
+                //}
+
             }
             catch (Exception ex)
             {
@@ -568,7 +570,7 @@ namespace BCP
                 }
 
             }
-           
+
             List<string> lst_get_data = get_data.Split(spl2).ToList();
             // cmd.Parameters.AddWithValue("?", GetDateWithoutMilliseconds(DateTime.Now));
 
@@ -576,9 +578,9 @@ namespace BCP
             //        {
             //            return new DateTime(d.Year, d.Month, d.Day, d.Hour, d.Minute, d.Second);
             //        }
-              DateTime kq = new DateTime(int.Parse(lst_get_data[2]),int.Parse( lst_get_data[1]),int.Parse( lst_get_data[0]));
+            DateTime kq = new DateTime(int.Parse(lst_get_data[2]), int.Parse(lst_get_data[1]), int.Parse(lst_get_data[0]));
             //     DateTime result = new DateTime(kq.Year, kq.Month, kq.Day, kq.Hour, kq.Minute, kq.Second);
-           // string result =  lst_get_data[2] + "-" + lst_get_data[1] + "-" + lst_get_data[0] ;
+            // string result =  lst_get_data[2] + "-" + lst_get_data[1] + "-" + lst_get_data[0] ;
             return kq;
             //throw new NotImplementedException();
         }
@@ -854,7 +856,7 @@ namespace BCP
 
         {
 
-          //  return DateTime.Today;
+            //  return DateTime.Today;
             //   DateTime result_date;
             CultureInfo provider = CultureInfo.InvariantCulture;
             //     this.Clearing_date = DateTime.ParseExact("21/10/1979", "{dd/mm/yyyy }", provider);
@@ -873,7 +875,7 @@ namespace BCP
             DateTime check_date = DateTime.Now;
             string sysFormat = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;
 
-        
+
             char spl2 = '.';
             //get_data
             if (get_data.Contains("/"))
@@ -955,7 +957,7 @@ namespace BCP
 
 
             //---
-        //    List<string> lst_get_sys = sysFormat.Split(spl).ToList();
+            //    List<string> lst_get_sys = sysFormat.Split(spl).ToList();
 
             List<string> lst_get_datasample = "dd/mm/yyyy".Split('/').ToList();
             //--
