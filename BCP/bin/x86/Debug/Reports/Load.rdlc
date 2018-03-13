@@ -565,7 +565,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.85292in</Top>
-        <Left>5.20708in</Left>
+        <Left>5.08208in</Left>
         <Height>0.72222in</Height>
         <Width>1.88542in</Width>
         <ZIndex>4</ZIndex>
@@ -729,7 +729,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>1.67236in</Top>
-        <Left>5.20708in</Left>
+        <Left>5.08208in</Left>
         <Height>3.76389in</Height>
         <Width>1.88542in</Width>
         <ZIndex>5</ZIndex>
@@ -759,7 +759,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>5.85361in</Top>
-        <Left>5.16083in</Left>
+        <Left>5.03583in</Left>
         <Height>0.72222in</Height>
         <Width>1.88542in</Width>
         <ZIndex>6</ZIndex>
@@ -791,7 +791,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>6.60729in</Top>
-        <Left>5.16083in</Left>
+        <Left>5.03583in</Left>
         <Height>0.32639in</Height>
         <Width>1.88542in</Width>
         <ZIndex>7</ZIndex>
@@ -855,7 +855,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>8.66923in</Top>
-        <Left>5.16083in</Left>
+        <Left>5.03583in</Left>
         <Height>0.32639in</Height>
         <Width>1.88542in</Width>
         <ZIndex>9</ZIndex>
@@ -887,7 +887,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>9.80881in</Top>
-        <Left>5.16083in</Left>
+        <Left>5.03583in</Left>
         <Height>0.32639in</Height>
         <Width>1.88542in</Width>
         <ZIndex>10</ZIndex>
@@ -3298,7 +3298,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>7.14458in</Width>
+  <Width>7.04625in</Width>
   <Page>
     <PageFooter>
       <Height>0.28473in</Height>
@@ -3380,8 +3380,8 @@
         </Border>
       </Style>
     </PageFooter>
-    <PageHeight>11.69in</PageHeight>
-    <PageWidth>8.27in</PageWidth>
+    <PageHeight>19.4444in</PageHeight>
+    <PageWidth>7.0417in</PageWidth>
     <LeftMargin>0.5in</LeftMargin>
     <RightMargin>0.25in</RightMargin>
     <TopMargin>0.15in</TopMargin>

@@ -1013,6 +1013,30 @@ namespace BCP.View
                 {
                     dataGridetailorder.Rows[idrow].Cells["Product_Code"].Style.BackColor = Color.GhostWhite;
                 }
+                DateTime dlvDate = dateTimePicker1.Value;
+                string productCode = dataGridetailorder.Rows[idrow].Cells["Product_Code"].Value.ToString().Trim();
+                string ordernumber = Model.Orders.getOrdernumbertemp();
+                string connection_string = Utils.getAccessConnectionstring();
+                string custCode = txtsoldto.Text.ToString();
+                string salesRegion = lbsalesRegion.Text.ToString();
+                string keyAccount = Model.Orders.getKeyaccount(custCode, salesRegion);
+                string salesDistric = Model.Orders.getsalesDistric(custCode, salesRegion);
+
+                double basePrice = Model.Orders.getBasePrice(productCode, custCode, salesRegion, dlvDate);
+                if (basePrice == 0)
+                {
+                    kqdetail = false;
+                    dataGridetailorder.Rows[idrow].Cells["Product_Code"].Style.BackColor = Color.Aqua;
+                    //    dataGridProgramdetail.Rows[idrow].Cells["Amount"].Selected = true;
+                    MessageBox.Show("Sản phẩm chưa set giá base, please check !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    return;
+                }
+                else
+                {
+                    dataGridetailorder.Rows[idrow].Cells["Product_Code"].Style.BackColor = Color.GhostWhite;
+                }
+
 
             }
 
@@ -1027,7 +1051,7 @@ namespace BCP.View
                 string salesRegion = lbsalesRegion.Text.ToString();
                 string keyAccount = Model.Orders.getKeyaccount(custCode, salesRegion);
                 string salesDistric = Model.Orders.getsalesDistric(custCode, salesRegion);
-
+             
                 DateTime dlvDate = dateTimePicker1.Value;
 
                 for (int idrow = 0; idrow < dataGridetailorder.RowCount - 1; idrow++)
@@ -1069,7 +1093,23 @@ namespace BCP.View
                     comm.Parameters.AddWithValue("@Description", dataGridetailorder.Rows[idrow].Cells["Product_Name"].Value.ToString());
                     int QuantityPro = int.Parse(dataGridetailorder.Rows[idrow].Cells["Amount"].Value.ToString());
                     comm.Parameters.AddWithValue("@Order_qty", QuantityPro);// number
-                    comm.Parameters.AddWithValue("@fRECASSE", dataGridetailorder.Rows[idrow].Cells["FreeCase"].Value);  //FreeCase
+                    bool freecase;
+
+                    if (dataGridetailorder.Rows[idrow].Cells["FreeCase"].Value == DBNull.Value)
+                    {
+                        freecase = false;
+
+                    }
+                    else
+                    {
+                        freecase = (bool)dataGridetailorder.Rows[idrow].Cells["FreeCase"].Value;
+                    }
+
+
+                    //dataGridetailorder.Rows[idrow].Cells["FreeCase"].Value
+
+
+                    comm.Parameters.AddWithValue("@fRECASSE", freecase );  //FreeCase
                     comm.Parameters.AddWithValue("@Shipto", int.Parse(txtshipto.Text.ToString())); // numbar
 
                     comm.Parameters.AddWithValue("@ShiptoName", lbshiptoname.Text.ToString()); // numbar ShippingPoint
@@ -1081,15 +1121,33 @@ namespace BCP.View
                     comm.Parameters.AddWithValue("@Unit", Model.Product.productUnit(productCode));
 
                     //  public static double getBasePrice(string productcode, string custcode, string salesRegion, DateTime priceDate)
+
                     double basePrice = Model.Orders.getBasePrice(productCode, custCode, salesRegion, dlvDate);
+                 
+
                     int PromotionID = 1; //1 Promotiondiscount 2. Fungtion discount; 3 surcharge
                     int FunntionDiscountCode = 2;
                     int SurchargeDiscountID = 3;
                     double PromotionDiscountAmount = Model.Orders.getDiscount(PromotionID, productCode, custCode, salesRegion, keyAccount, basePrice, dlvDate);
                     double FunntionDiscountamount = Model.Orders.getDiscount(FunntionDiscountCode, productCode, custCode, salesRegion, keyAccount, basePrice, dlvDate);
                     double SurchargeDiscounamount = Model.Orders.getDiscount(SurchargeDiscountID, productCode, custCode, salesRegion, keyAccount, basePrice, dlvDate);
-                    double netPrice = basePrice + PromotionDiscountAmount + FunntionDiscountamount + SurchargeDiscounamount;
+                    double netPrice = 0;
+                    if (freecase == true)
+                    {
+                        netPrice = 0;
+                    }
+                    else
+                    {
+                         netPrice = basePrice + PromotionDiscountAmount + FunntionDiscountamount + SurchargeDiscounamount;
+
+                    }
+
+
+
+
                     double amounttotal = QuantityPro * netPrice * 1.1;
+
+                  
 
                     comm.Parameters.AddWithValue("@amount", netPrice); // numbar
                                                                        // EmptyCode
@@ -1238,7 +1296,7 @@ namespace BCP.View
             dt3.Columns.Add(new DataColumn("Product_Code", typeof(string)));
             dt3.Columns.Add(new DataColumn("Amount", typeof(double)));
             dt3.Columns.Add(new DataColumn("Product_Name", typeof(string)));
-            dt3.Columns.Add(new DataColumn("FreeCase", typeof(Boolean)));
+            dt3.Columns.Add(new DataColumn("FreeCase", typeof(bool)));
 
 
 

@@ -94,7 +94,7 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Top>0.44735in</Top>
-                          <Left>4.15427in</Left>
+                          <Left>4.4975in</Left>
                           <Height>0.22223in</Height>
                           <Width>1.23958in</Width>
                           <ZIndex>2</ZIndex>
@@ -210,7 +210,7 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Top>1.51892in</Top>
-                          <Left>3.90429in</Left>
+                          <Left>4.24752in</Left>
                           <Height>0.21181in</Height>
                           <Width>1.48956in</Width>
                           <ZIndex>6</ZIndex>
@@ -272,7 +272,7 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Top>1.93559in</Top>
-                          <Left>3.9043in</Left>
+                          <Left>4.07045in</Left>
                           <Height>0.21181in</Height>
                           <Width>1.48955in</Width>
                           <ZIndex>8</ZIndex>
@@ -326,6 +326,7 @@
                         </Border>
                       </Style>
                     </Rectangle>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -370,7 +371,7 @@
                               <Value>=Fields!IDpage.Value</Value>
                             </Parameter>
                           </Parameters>
-                          <Top>0.12153in</Top>
+                          <Top>0.4757in</Top>
                           <Left>0.04334in</Left>
                           <Height>0.82292in</Height>
                           <Width>3.79151in</Width>
@@ -438,7 +439,7 @@
   <Width>5.86438in</Width>
   <Page>
     <PageFooter>
-      <Height>1.08177in</Height>
+      <Height>0.26927in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -513,7 +514,7 @@
       </Style>
     </PageFooter>
     <PageHeight>11.69in</PageHeight>
-    <PageWidth>8.27in</PageWidth>
+    <PageWidth>7.4583in</PageWidth>
     <LeftMargin>0.5in</LeftMargin>
     <RightMargin>0.25in</RightMargin>
     <TopMargin>0.15in</TopMargin>
