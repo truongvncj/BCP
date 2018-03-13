@@ -1110,7 +1110,7 @@ namespace BCP.Control.PriceCheck
 
 
 
-                        if (value.Trim().Equals("Code"))
+                        if (value.Trim().Equals("product_code"))
                         {
                             Codeid = columid;
                             if (headindex < 0)
@@ -1183,7 +1183,7 @@ namespace BCP.Control.PriceCheck
 
             if (Codeid == -1)
             {
-                MessageBox.Show("Thiếu cột : Code", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Thiếu cột : product_code", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
 
             }
@@ -1244,7 +1244,7 @@ namespace BCP.Control.PriceCheck
 
 
                     string StringQuery = @"INSERT INTO tbl_list_product(
-                                                Code,
+                                                product_code,
                                                 product_type,
                                                 product_group,
                                                 product_Name,
@@ -1254,7 +1254,7 @@ namespace BCP.Control.PriceCheck
                                                     ) 
 
                                             VALUES(
-                                                 @Code,
+                                                 @product_code,
                                                 @product_type,
                                                 @product_group,
                                                 @product_Name,
@@ -1266,7 +1266,7 @@ namespace BCP.Control.PriceCheck
 
 
                     //ADD PARAMS
-                    comm.Parameters.AddWithValue("@code", sourceData.Rows[rowixd][Codeid].ToString().Trim());
+                    comm.Parameters.AddWithValue("@product_code", sourceData.Rows[rowixd][Codeid].ToString().Trim());
                     comm.Parameters.AddWithValue("@product_type", sourceData.Rows[rowixd][product_typeid].ToString().Trim());
                     comm.Parameters.AddWithValue("@product_group", sourceData.Rows[rowixd][product_groupid].ToString().Trim());
                     comm.Parameters.AddWithValue("@product_Name", sourceData.Rows[rowixd][product_Nameid].ToString().Trim());
@@ -1303,7 +1303,7 @@ namespace BCP.Control.PriceCheck
                     {
 
                         MessageBox.Show("Error :" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                        return;
                     }
 
                     /// inser vao table access
