@@ -292,8 +292,7 @@ namespace BCP.Control.PriceCheck
             for (int rowid = 0; rowid < sourceData.Rows.Count ; rowid++) // basepriceValu kiem ta 20 dong dau de lấy colum
             {
 
-                OleDbConnection conn = new OleDbConnection(connection_string);
-                conn.Open();
+              
                 #region setvalue of pricelist
                 //   string valuepricelist = Utils.GetValueOfCellInExcel(worksheet, rowid, columpricelist);
                 string valuepricelist = sourceData.Rows[rowid][columpricelist].ToString();
@@ -316,7 +315,8 @@ namespace BCP.Control.PriceCheck
                         if (code != "")
                         {
                             /// inser vao tbale access
-
+                            OleDbConnection conn = new OleDbConnection(connection_string);
+                            conn.Open();
 
                             string StringQuery = @"INSERT INTO tbl_pricebase_list( product_code,   pricebase, Unit,  Pack, fromdate, todate,  Username, MaterialName,   PriceList ) 
 
@@ -380,7 +380,7 @@ namespace BCP.Control.PriceCheck
                             /// inser vao table access
 
 
-
+                            conn.Close();
 
                         }
 
@@ -391,7 +391,7 @@ namespace BCP.Control.PriceCheck
                 }
 
                 #endregion
-                conn.Close();
+             
 
             }
             //conpy to server
@@ -452,7 +452,7 @@ namespace BCP.Control.PriceCheck
 
                     //then the data saved successfully
                     //conn.Close();
-                    conn.Close();
+                //    conn.Close();
                     //   return true;
                 }
 
@@ -460,7 +460,7 @@ namespace BCP.Control.PriceCheck
 
                 {
                     //MessageBox.Show("Please check old password !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conn.Close();
+                 
                     //   return false;
                     //it did not save
 
@@ -474,7 +474,10 @@ namespace BCP.Control.PriceCheck
             }
 
 
-
+            if (conn.State==ConnectionState.Open)
+            {
+                conn.Close();
+            }
 
             //list vn
             var listvn = new List<string>();
@@ -599,18 +602,7 @@ namespace BCP.Control.PriceCheck
 
                 listfuction.Add(dr["Sales_district"].ToString());
             }
-            //    listvn.Add("VN");
-
-
-            //// listsafuction
-
-
-            //listfuction = (from tbl_KAlistpricefunction in dc.tbl_KAlistpricefunctions
-            //               group tbl_KAlistpricefunction.function by tbl_KAlistpricefunction.function into g
-            //               select g.Key.Trim()).ToList();
-
-            ////   listvn.Add("VN");
-            ////listsafuction
+           
 
 
 
@@ -618,25 +610,7 @@ namespace BCP.Control.PriceCheck
             //#endregion
             System.Data.DataTable sourceData = ExcelProvide.GetDataFromExcel(filename);
 
-            //   DataTable batable = new DataTable();
-
-            //batable.Columns.Add("product_code", typeof(string));
-            //batable.Columns.Add("product_group", typeof(string));
-
-            //batable.Columns.Add("percent_amount", typeof(double));
-            //batable.Columns.Add("amount", typeof(double));
-
-            //batable.Columns.Add("customerid", typeof(double));
-            //batable.Columns.Add("keyaccount", typeof(double));
-
-            //batable.Columns.Add("sales_region", typeof(string));
-            //batable.Columns.Add("saledistrict", typeof(string));
-            //batable.Columns.Add("programId", typeof(string));
-
-            //batable.Columns.Add("fromdate", typeof(DateTime));
-            //batable.Columns.Add("todate", typeof(DateTime));
-            //batable.Columns.Add("row", typeof(int));
-
+          
 
 
             string sales_region = "0";
@@ -876,7 +850,19 @@ namespace BCP.Control.PriceCheck
 
                             #region setvalue up vao data base
 
-                            conn.Open();
+                            try
+                            {
+                                conn.Open();
+                            }
+                            catch (OleDbException e)
+                            {
+                                MessageBox.Show(e.ToString());
+                            }
+
+
+                         
+                           
+
                             string StringQuery2 = @"INSERT INTO tbl_price_discount( product_code,   product_group, percent_amount,  fromdate, todate, customerid,  keyaccount, saledistrict,   programId,   Username,   sales_region,   amount , rowExcel) 
 
                                                                       VALUES ( @product_code, @product_group, @percent_amount, @fromdate, @todate, @customerid, @keyaccount, @saledistrict, @programId , @Username, @sales_region, @amount , @rowExcel)";
@@ -934,7 +920,7 @@ namespace BCP.Control.PriceCheck
                                 {
                                     MessageBox.Show("value row error :" + rowid.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     //      Thread.CurrentThread.Abort();
-                                    conn.Close();
+                                   // conn.Close();
                                     // return;
                                     //it did not save
 
@@ -945,7 +931,7 @@ namespace BCP.Control.PriceCheck
                             {
 
                                 MessageBox.Show("Error :" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                conn.Close();
+                           //     conn.Close();
                                 //    Thread.CurrentThread.Abort();
                                 //    return;
                             }
@@ -953,9 +939,10 @@ namespace BCP.Control.PriceCheck
                             /// inser vao table access
 
 
-
-                            conn.Close();
-                            //           }
+                            if (conn.State == ConnectionState.Open)
+                            {
+                                conn.Close();
+                            }
 
                             #endregion
                         }
@@ -989,76 +976,7 @@ namespace BCP.Control.PriceCheck
 
             } //fro row
 
-            //     //conpy to server
-            //   string destConnString = Utils.getConnectionstr();
-
-            //adapter.FillSchema(sourceData, SchemaType.Source);
-            //sourceData.Columns["Posting Date"].DataType = typeof(DateTime);
-            //sourceData.Columns["Invoice Doc Nr"].DataType = typeof(float);
-            //sourceData.Columns["Billed Qty"].DataType = typeof(float);
-            //sourceData.Columns["Cond Value"].DataType = typeof(float);
-            //sourceData.Columns["Sales Org"].DataType = typeof(string);
-            //sourceData.Columns["Cust Name"].DataType = typeof(string);
-            //sourceData.Columns["Outbound Delivery"].DataType = typeof(string);
-            //sourceData.Columns["Mat Group"].DataType = typeof(string);
-            //sourceData.Columns["Mat Group Text"].DataType = typeof(string);
-            //sourceData.Columns["UoM"].DataType = typeof(string);
-            //---------------fill data
-
-
-            //using (SqlBulkCopy bulkCopy = new SqlBulkCopy(destConnString))
-            //{
-
-
-            //    bulkCopy.DestinationTableName = "tbl_KApromotinprice";
-            //    // Write from the source to the destination.
-            //    bulkCopy.BulkCopyTimeout = 0;
-
-            //    bulkCopy.ColumnMappings.Add("product_code", "product_code");
-
-            //    bulkCopy.ColumnMappings.Add("product_group", "product_group");
-            //    //   bulkCopy.ColumnMappings.Add("MaterialNAme", "MaterialNAme");
-            //    bulkCopy.ColumnMappings.Add("percent_amount", "percent_amount");
-            //    bulkCopy.ColumnMappings.Add("amount", "amount");
-            //    bulkCopy.ColumnMappings.Add("customerid", "customerid");
-            //    bulkCopy.ColumnMappings.Add("keyaccount", "keyaccount");
-            //    bulkCopy.ColumnMappings.Add("sales_region", "sales_region");
-
-
-            //    bulkCopy.ColumnMappings.Add("saledistrict", "saledistrict");
-            //    bulkCopy.ColumnMappings.Add("programId", "programId");
-            //    bulkCopy.ColumnMappings.Add("fromdate", "fromdate");
-            //    bulkCopy.ColumnMappings.Add("todate", "todate");
-            //    bulkCopy.ColumnMappings.Add("row", "row");
-
-
-            //try
-            //{
-            //    bulkCopy.WriteToServer(batable);
-            //}
-            //catch (Exception ex)
-            //{
-
-            //    MessageBox.Show(ex.ToString(), "Thông báo lỗi Bulk Copy !", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    Thread.CurrentThread.Abort();
-            //}
-
-
-            //        }
-            //copy to server
-            //   string connection_string = Utils.getConnectionstr();
-
-            //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            //    var typeffmain = typeof(tbl_KAbaseprice);
-            //     var typeffsub = typeof(tbl_KAbaseprice);
-
-            //    VInputchange inputcdata1 = new VInputchange("", "Base price list", dc, "tbl_KAbaseprice", "tbl_KAbaseprice", typeffmain, typeffsub, "id", "id", "");
-            //    inputcdata1.ShowDialog();
-            //  View.Viewdatatable TB = new View.Viewdatatable(batable, "lIST DATA");
-            //  TB.ShowDialog();
-
-            //  }
+        
         }
 
 
