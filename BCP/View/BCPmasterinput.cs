@@ -1188,6 +1188,10 @@ namespace BCP.View
              new OleDbDataAdapter("SELECT * FROM tbl_price_discount Where tbl_price_discount.programId = 2", conn);
             adapter.Fill(ds);
             conn.Close();
+          //  conn.Close();
+            OleDbConnection.ReleaseObjectPool();
+            GC.Collect();  // I know attation
+
             DataTable dt = ds.Tables[0];
             // close the connection
 
@@ -1218,6 +1222,10 @@ namespace BCP.View
              new OleDbDataAdapter("SELECT * FROM tbl_price_discount Where tbl_price_discount.programId = 3", conn);
             adapter.Fill(ds);
             conn.Close();
+        //    conn.Close();
+            OleDbConnection.ReleaseObjectPool();
+            GC.Collect();  // I know attation
+
             DataTable dt = ds.Tables[0];
             // close the connection
 

@@ -477,6 +477,10 @@ namespace BCP.Control.PriceCheck
             if (conn.State==ConnectionState.Open)
             {
                 conn.Close();
+          //      conn.Close();
+                OleDbConnection.ReleaseObjectPool();
+                GC.Collect();  // I know attation
+
             }
 
             //list vn
@@ -850,15 +854,9 @@ namespace BCP.Control.PriceCheck
 
                             #region setvalue up vao data base
 
-                            try
-                            {
+                            
                                 conn.Open();
-                            }
-                            catch (OleDbException e)
-                            {
-                                MessageBox.Show(e.ToString());
-                            }
-
+                           
 
                          
                            
@@ -938,12 +936,12 @@ namespace BCP.Control.PriceCheck
 
                             /// inser vao table access
 
-
-                            if (conn.State == ConnectionState.Open)
-                            {
+                           
+                                
                                 conn.Close();
-                            }
-
+                                OleDbConnection.ReleaseObjectPool();
+                                GC.Collect();  // I know attation
+                         
                             #endregion
                         }
 

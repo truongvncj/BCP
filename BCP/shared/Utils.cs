@@ -395,7 +395,7 @@ namespace BCP
                     // Microsoft.ACE.OLEDB.15.0
                     //   Microsoft.ACE.OLEDB.16.0
                     //   Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\mtruong\Desktop\BCP\Sapprint2003.mdb; Persist Security Info = True
-                    connection_string = ("Provider=" + st2 + "; Data Source =" + st1 + "; Persist Security Info = True").Trim();
+                    connection_string = ("Provider=" + st2 + "; Data Source =" + st1 + "; Persist Security Info = false").Trim();
                     return connection_string;
 
 
