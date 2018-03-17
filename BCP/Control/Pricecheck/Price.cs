@@ -289,10 +289,10 @@ namespace BCP.Control.PriceCheck
 
             }// row
 
-            for (int rowid = 0; rowid < sourceData.Rows.Count ; rowid++) // basepriceValu kiem ta 20 dong dau de lấy colum
+            for (int rowid = 0; rowid < sourceData.Rows.Count; rowid++) // basepriceValu kiem ta 20 dong dau de lấy colum
             {
 
-              
+
                 #region setvalue of pricelist
                 //   string valuepricelist = Utils.GetValueOfCellInExcel(worksheet, rowid, columpricelist);
                 string valuepricelist = sourceData.Rows[rowid][columpricelist].ToString();
@@ -315,73 +315,97 @@ namespace BCP.Control.PriceCheck
                         if (code != "")
                         {
                             /// inser vao tbale access
-                            OleDbConnection conn = new OleDbConnection(connection_string);
-                            conn.Open();
+                            /// 
+                            var path = connection_string;// String.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=Excel 12.0 Xml;", filePath);
+                            using (var conn2 = new OleDbConnection(path))
+                            {
+                                // Open your connection
+                                conn2.Open();
 
-                            string StringQuery = @"INSERT INTO tbl_pricebase_list( product_code,   pricebase, Unit,  Pack, fromdate, todate,  Username, MaterialName,   PriceList ) 
+                                //  xx
+                                //  OleDbConnection conn = new OleDbConnection(connection_string);
+                                //conn.Open();
+
+                                string StringQuery = @"INSERT INTO tbl_pricebase_list( product_code,   pricebase, Unit,  Pack, fromdate, todate,  Username, MaterialName,   PriceList ) 
 
                                                                       VALUES ( @product_code, @pricebase, @Unit, @Pack, @fromdate, @todate, @Username, @MaterialName, @PriceList  )";
-                            OleDbCommand comm = new OleDbCommand(StringQuery, conn);
+                                OleDbCommand comm = new OleDbCommand(StringQuery, conn2);
 
 
-                            //ADD PARAMS
-                            comm.Parameters.AddWithValue("@product_code", sourceData.Rows[rowid][columpmaterial].ToString().Trim());
-                            comm.Parameters.AddWithValue("@pricebase", double.Parse(sourceData.Rows[rowid][columpamount].ToString()));
-                            comm.Parameters.AddWithValue("@Unit", sourceData.Rows[rowid][columunit].ToString().Trim());
-                            comm.Parameters.AddWithValue("@Pack", sourceData.Rows[rowid][columUoM].ToString().Trim());
+                                //ADD PARAMS
+                                comm.Parameters.AddWithValue("@product_code", sourceData.Rows[rowid][columpmaterial].ToString().Trim());
+                                comm.Parameters.AddWithValue("@pricebase", double.Parse(sourceData.Rows[rowid][columpamount].ToString()));
+                                comm.Parameters.AddWithValue("@Unit", sourceData.Rows[rowid][columunit].ToString().Trim());
+                                comm.Parameters.AddWithValue("@Pack", sourceData.Rows[rowid][columUoM].ToString().Trim());
 
-                            OleDbParameter parm = new OleDbParameter("@fromdate", OleDbType.Date);
-                            parm.Value = Utils.ConvertStringSAPdotdatetoDatetime(sourceData.Rows[rowid][columValid_From].ToString());
-                            comm.Parameters.Add(parm);
+                                OleDbParameter parm = new OleDbParameter("@fromdate", OleDbType.Date);
+                                parm.Value = Utils.ConvertStringSAPdotdatetoDatetime(sourceData.Rows[rowid][columValid_From].ToString());
+                                comm.Parameters.Add(parm);
 
-                            OleDbParameter parm2 = new OleDbParameter("@todate", OleDbType.Date);
-                            parm2.Value = Utils.ConvertStringSAPdotdatetoDatetime(sourceData.Rows[rowid][columValid_to].ToString());
-                            comm.Parameters.Add(parm2);
+                                OleDbParameter parm2 = new OleDbParameter("@todate", OleDbType.Date);
+                                parm2.Value = Utils.ConvertStringSAPdotdatetoDatetime(sourceData.Rows[rowid][columValid_to].ToString());
+                                comm.Parameters.Add(parm2);
 
-                            comm.Parameters.AddWithValue("@Username", username.Trim());
-                            comm.Parameters.AddWithValue("@MaterialName", sourceData.Rows[rowid][columname].ToString().Trim());
+                                comm.Parameters.AddWithValue("@Username", username.Trim());
+                                comm.Parameters.AddWithValue("@MaterialName", sourceData.Rows[rowid][columname].ToString().Trim());
 
-                            comm.Parameters.AddWithValue("@PriceList", Pricelist.Trim());
+                                comm.Parameters.AddWithValue("@PriceList", Pricelist.Trim());
 
-                            try
-                            {
-                                //   MessageBox.Show(comm.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                int temp = comm.ExecuteNonQuery();
-
-                                if (temp > 0)
-
+                                try
                                 {
-                                    //  MessageBox.Show("Password Change !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    //   MessageBox.Show(comm.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                    //then the data saved successfully
+                                    int temp = comm.ExecuteNonQuery();
 
+                                    if (temp > 0)
+
+                                    {
+                                        //  MessageBox.Show("Password Change !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                        //then the data saved successfully
+
+                                    }
+
+                                    else
+
+                                    {
+                                        MessageBox.Show("value row error :" + rowid.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        //      Thread.CurrentThread.Abort();
+                                        return;
+                                        //it did not save
+
+                                    }
+                                    //
                                 }
-
-                                else
-
+                                catch (Exception ex)
                                 {
-                                    MessageBox.Show("value row error :" + rowid.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    //      Thread.CurrentThread.Abort();
+
+                                    MessageBox.Show("Error :" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    //    Thread.CurrentThread.Abort();
                                     return;
-                                    //it did not save
-
                                 }
-                                //
+
+                                /// inser vao table access
+
+
+                                conn2.Close();
+                                OleDbConnection.ReleaseObjectPool();
+                                GC.Collect();  // I know attation
+
+
+
+
+                                //// Populate a database with the schema
+                                //var schema = connection.GetSchema("Tables");
+                                //using (var adapter = new OleDbDataAdapter("SELECT * FROM [@Row]", connection))
+                                //{
+                                //    // Add your parameter
+                                //    adapter.SelectCommand.Parameters.AddWithValue("@Row", schema.Rows[0][2]);
+                                //    // Build your data table
+                                //    var results = new DataTable();
+                                //    adapter.Fill(results);
+                                //}
                             }
-                            catch (Exception ex)
-                            {
-
-                                MessageBox.Show("Error :" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                //    Thread.CurrentThread.Abort();
-                                return;
-                            }
-
-                            /// inser vao table access
-
-
-                            conn.Close();
-
                         }
 
                         #endregion
@@ -391,7 +415,7 @@ namespace BCP.Control.PriceCheck
                 }
 
                 #endregion
-             
+
 
             }
             //conpy to server
@@ -452,7 +476,7 @@ namespace BCP.Control.PriceCheck
 
                     //then the data saved successfully
                     //conn.Close();
-                //    conn.Close();
+                    //    conn.Close();
                     //   return true;
                 }
 
@@ -460,7 +484,7 @@ namespace BCP.Control.PriceCheck
 
                 {
                     //MessageBox.Show("Please check old password !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                 
+
                     //   return false;
                     //it did not save
 
@@ -474,10 +498,10 @@ namespace BCP.Control.PriceCheck
             }
 
 
-            if (conn.State==ConnectionState.Open)
+            if (conn.State == ConnectionState.Open)
             {
                 conn.Close();
-          //      conn.Close();
+                //      conn.Close();
                 OleDbConnection.ReleaseObjectPool();
                 GC.Collect();  // I know attation
 
@@ -516,7 +540,7 @@ namespace BCP.Control.PriceCheck
 
                 listvn.Add(dr["Regions"].ToString());
             }
-         
+
 
             //ds. = DBNull;
             //dt = DBNull;
@@ -606,7 +630,7 @@ namespace BCP.Control.PriceCheck
 
                 listfuction.Add(dr["Sales_district"].ToString());
             }
-           
+
 
 
 
@@ -614,7 +638,7 @@ namespace BCP.Control.PriceCheck
             //#endregion
             System.Data.DataTable sourceData = ExcelProvide.GetDataFromExcel(filename);
 
-          
+
 
 
             string sales_region = "0";
@@ -852,97 +876,198 @@ namespace BCP.Control.PriceCheck
                         if (penctamount + amount != 0)
                         {
 
-                            #region setvalue up vao data base
+                            // Build your connection string path
+                            var path = connection_string;// String.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=Excel 12.0 Xml;", filePath);
+                            using (var conn2 = new OleDbConnection(path))
+                            {
+                                // Open your connection
+                                conn2.Open();
 
-                            
-                                conn.Open();
-                           
-
-                         
-                           
-
-                            string StringQuery2 = @"INSERT INTO tbl_price_discount( product_code,   product_group, percent_amount,  fromdate, todate, customerid,  keyaccount, saledistrict,   programId,   Username,   sales_region,   amount , rowExcel) 
+                                string StringQuery2 = @"INSERT INTO tbl_price_discount( product_code,   product_group, percent_amount,  fromdate, todate, customerid,  keyaccount, saledistrict,   programId,   Username,   sales_region,   amount , rowExcel) 
 
                                                                       VALUES ( @product_code, @product_group, @percent_amount, @fromdate, @todate, @customerid, @keyaccount, @saledistrict, @programId , @Username, @sales_region, @amount , @rowExcel)";
-                            OleDbCommand comm2 = new OleDbCommand(StringQuery2, conn);
+                                OleDbCommand comm2 = new OleDbCommand(StringQuery2, conn2);
 
 
-                            //ADD PARAMS
-                            //         (, product_group, percent_amount, fromdate, todate, customerid, keyaccount, saledistrict, programId, Username, sales_region, amount)
-                            comm2.Parameters.AddWithValue("@product_code", product_codevalue.ToString());
-                            comm2.Parameters.AddWithValue("@product_group", product_groupvalue); // number
-                            comm2.Parameters.AddWithValue("@percent_amount", penctamount); // numbear
+                                comm2.Parameters.AddWithValue("@product_code", product_codevalue.ToString());
+                                comm2.Parameters.AddWithValue("@product_group", product_groupvalue); // number
+                                comm2.Parameters.AddWithValue("@percent_amount", penctamount); // numbear
 
-                            OleDbParameter parm = new OleDbParameter("@fromdate", OleDbType.Date);
-                            parm.Value = Utils.ConvertStringSAPdotdatetoDatetime(sourceData.Rows[rowid][fromdateid].ToString());
-                            comm2.Parameters.Add(parm);
+                                OleDbParameter parm = new OleDbParameter("@fromdate", OleDbType.Date);
+                                parm.Value = Utils.ConvertStringSAPdotdatetoDatetime(sourceData.Rows[rowid][fromdateid].ToString());
+                                comm2.Parameters.Add(parm);
 
-                            OleDbParameter parm2 = new OleDbParameter("@todate", OleDbType.Date);
-                            parm2.Value = Utils.ConvertStringSAPdotdatetoDatetime(sourceData.Rows[rowid][todateid].ToString());
-                            comm2.Parameters.Add(parm2);
-                            comm2.Parameters.AddWithValue("@customerid", customervalue.ToString());
-                            comm2.Parameters.AddWithValue("@keyaccount", keyaccount);  // numbader
-                            comm2.Parameters.AddWithValue("@saledistrict", saledistrict.ToString());
-                            comm2.Parameters.AddWithValue("@programId", programe);  // numbear
-                            comm2.Parameters.AddWithValue("@Username", username.Trim());
+                                OleDbParameter parm2 = new OleDbParameter("@todate", OleDbType.Date);
+                                parm2.Value = Utils.ConvertStringSAPdotdatetoDatetime(sourceData.Rows[rowid][todateid].ToString());
+                                comm2.Parameters.Add(parm2);
+                                comm2.Parameters.AddWithValue("@customerid", customervalue.ToString());
+                                comm2.Parameters.AddWithValue("@keyaccount", keyaccount);  // numbader
+                                comm2.Parameters.AddWithValue("@saledistrict", saledistrict.ToString());
+                                comm2.Parameters.AddWithValue("@programId", programe);  // numbear
+                                comm2.Parameters.AddWithValue("@Username", username.Trim());
 
 
-                            comm2.Parameters.AddWithValue("@sales_region", sales_region.Trim());
+                                comm2.Parameters.AddWithValue("@sales_region", sales_region.Trim());
 
 
-                            comm2.Parameters.AddWithValue("@amount", amount);  // numbear
-                            comm2.Parameters.AddWithValue("@rowExcel", rowid);  // numbear
+                                comm2.Parameters.AddWithValue("@amount", amount);  // numbear
+                                comm2.Parameters.AddWithValue("@rowExcel", rowid);  // numbear
 
 
-                            //rowExcel
+                                //rowExcel
 
-                            //  comm2.Parameters.AddWithValue("@PriceList", Pricelist.Trim());
+                                //  comm2.Parameters.AddWithValue("@PriceList", Pricelist.Trim());
 
-                            try
-                            {
-                                //   MessageBox.Show(comm.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                int temp = comm2.ExecuteNonQuery();
-
-                                if (temp > 0)
-
+                                try
                                 {
-                                    //  MessageBox.Show("Password Change !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    //   MessageBox.Show(comm.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                    //then the data saved successfully
+                                    int temp = comm2.ExecuteNonQuery();
 
+                                    if (temp > 0)
+
+                                    {
+                                        //  MessageBox.Show("Password Change !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                        //then the data saved successfully
+
+                                    }
+
+                                    else
+
+                                    {
+                                        MessageBox.Show("value row error :" + rowid.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        //      Thread.CurrentThread.Abort();
+                                        // conn.Close();
+                                        // return;
+                                        //it did not save
+
+                                    }
+                                    //
+                                }
+                                catch (Exception ex)
+                                {
+
+                                    MessageBox.Show("Error :" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    //     conn.Close();
+                                    //    Thread.CurrentThread.Abort();
+                                    //    return;
                                 }
 
-                                else
+                                /// inser vao table access
 
-                                {
-                                    MessageBox.Show("value row error :" + rowid.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    //      Thread.CurrentThread.Abort();
-                                   // conn.Close();
-                                    // return;
-                                    //it did not save
 
-                                }
-                                //
-                            }
-                            catch (Exception ex)
-                            {
 
-                                MessageBox.Show("Error :" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                           //     conn.Close();
-                                //    Thread.CurrentThread.Abort();
-                                //    return;
-                            }
-
-                            /// inser vao table access
-
-                           
-                                
-                                conn.Close();
+                                conn2.Close();
                                 OleDbConnection.ReleaseObjectPool();
                                 GC.Collect();  // I know attation
-                         
-                            #endregion
+
+
+
+
+                                //// Populate a database with the schema
+                                //var schema = connection.GetSchema("Tables");
+                                //using (var adapter = new OleDbDataAdapter("SELECT * FROM [@Row]", connection))
+                                //{
+                                //    // Add your parameter
+                                //    adapter.SelectCommand.Parameters.AddWithValue("@Row", schema.Rows[0][2]);
+                                //    // Build your data table
+                                //    var results = new DataTable();
+                                //    adapter.Fill(results);
+                                //}
+                            }
+
+                            // #region setvalue up vao data base
+
+
+                            // //      conn.Open();
+
+
+
+
+
+                            // //string StringQuery2 = @"INSERT INTO tbl_price_discount( product_code,   product_group, percent_amount,  fromdate, todate, customerid,  keyaccount, saledistrict,   programId,   Username,   sales_region,   amount , rowExcel) 
+
+                            // //                                          VALUES ( @product_code, @product_group, @percent_amount, @fromdate, @todate, @customerid, @keyaccount, @saledistrict, @programId , @Username, @sales_region, @amount , @rowExcel)";
+                            // //OleDbCommand comm2 = new OleDbCommand(StringQuery2, conn);
+
+
+                            //// comm2.Parameters.AddWithValue("@product_code", product_codevalue.ToString());
+                            //// comm2.Parameters.AddWithValue("@product_group", product_groupvalue); // number
+                            //// comm2.Parameters.AddWithValue("@percent_amount", penctamount); // numbear
+
+                            //// OleDbParameter parm = new OleDbParameter("@fromdate", OleDbType.Date);
+                            //// parm.Value = Utils.ConvertStringSAPdotdatetoDatetime(sourceData.Rows[rowid][fromdateid].ToString());
+                            //// comm2.Parameters.Add(parm);
+
+                            //// OleDbParameter parm2 = new OleDbParameter("@todate", OleDbType.Date);
+                            //// parm2.Value = Utils.ConvertStringSAPdotdatetoDatetime(sourceData.Rows[rowid][todateid].ToString());
+                            //// comm2.Parameters.Add(parm2);
+                            //// comm2.Parameters.AddWithValue("@customerid", customervalue.ToString());
+                            //// comm2.Parameters.AddWithValue("@keyaccount", keyaccount);  // numbader
+                            //// comm2.Parameters.AddWithValue("@saledistrict", saledistrict.ToString());
+                            //// comm2.Parameters.AddWithValue("@programId", programe);  // numbear
+                            //// comm2.Parameters.AddWithValue("@Username", username.Trim());
+
+
+                            //// comm2.Parameters.AddWithValue("@sales_region", sales_region.Trim());
+
+
+                            //// comm2.Parameters.AddWithValue("@amount", amount);  // numbear
+                            //// comm2.Parameters.AddWithValue("@rowExcel", rowid);  // numbear
+
+
+                            //// //rowExcel
+
+                            //// //  comm2.Parameters.AddWithValue("@PriceList", Pricelist.Trim());
+
+                            //// try
+                            //// {
+                            ////     //   MessageBox.Show(comm.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            ////     int temp = comm2.ExecuteNonQuery();
+
+                            ////     if (temp > 0)
+
+                            ////     {
+                            ////         //  MessageBox.Show("Password Change !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            ////         //then the data saved successfully
+
+                            ////     }
+
+                            ////     else
+
+                            ////     {
+                            ////         MessageBox.Show("value row error :" + rowid.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            ////         //      Thread.CurrentThread.Abort();
+                            ////        // conn.Close();
+                            ////         // return;
+                            ////         //it did not save
+
+                            ////     }
+                            ////     //
+                            //// }
+                            //// catch (Exception ex)
+                            //// {
+
+                            ////     MessageBox.Show("Error :" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //////     conn.Close();
+                            ////     //    Thread.CurrentThread.Abort();
+                            ////     //    return;
+                            //// }
+
+                            //// /// inser vao table access
+
+
+
+                            ////     conn.Close();
+                            ////     OleDbConnection.ReleaseObjectPool();
+                            ////     GC.Collect();  // I know attation
+
+                            // #endregion
+
+
                         }
 
 
@@ -974,7 +1099,7 @@ namespace BCP.Control.PriceCheck
 
             } //fro row
 
-        
+
         }
 
 
