@@ -1153,6 +1153,7 @@ namespace BCP
             finally
             {
                 GC.Collect();
+                GC.WaitForPendingFinalizers();
             }
         }
 
