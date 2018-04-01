@@ -31,7 +31,7 @@ namespace BCP.View
                 //   string[] names = new string[] { "Zara Ali", "Nuha Ali" };
               //  string user = Utils.getUsername();
             //    string pass = Utils.getpassword();
-                string s = txtmdbfile.Text  + ";" + txtprovider.Text ;
+                string s = txtmdbfile.Text.Trim()  + ";" + txtprovider.Text.Trim() ;
 
                 using (StreamWriter sw = new StreamWriter(fileName))
                 {
@@ -70,7 +70,7 @@ namespace BCP.View
 
             OpenFileDialog theDialog = new OpenFileDialog();
             theDialog.Title = "Open Access Server File:";
-            theDialog.Filter = "Access files|*.mdb";
+            theDialog.Filter = "Access files|*.mdb; *.accdb";
             theDialog.InitialDirectory = @"C:\";
             if (theDialog.ShowDialog() == DialogResult.OK)
             {

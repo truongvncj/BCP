@@ -103,7 +103,7 @@
             this.pictureBox1.ErrorImage = global::BCP.Properties.Resources.Settle;
             this.pictureBox1.Image = global::BCP.Properties.Resources.Settle;
             this.pictureBox1.InitialImage = global::BCP.Properties.Resources.Settle;
-            this.pictureBox1.Location = new System.Drawing.Point(301, 490);
+            this.pictureBox1.Location = new System.Drawing.Point(318, 489);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(110, 114);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -192,7 +192,7 @@
             this.pic_shipmentcreate.ErrorImage = global::BCP.Properties.Resources.delivery;
             this.pic_shipmentcreate.Image = global::BCP.Properties.Resources.delivery;
             this.pic_shipmentcreate.InitialImage = global::BCP.Properties.Resources.delivery;
-            this.pic_shipmentcreate.Location = new System.Drawing.Point(268, 247);
+            this.pic_shipmentcreate.Location = new System.Drawing.Point(278, 247);
             this.pic_shipmentcreate.Name = "pic_shipmentcreate";
             this.pic_shipmentcreate.Size = new System.Drawing.Size(187, 96);
             this.pic_shipmentcreate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -208,9 +208,9 @@
             this.pic_printinvoice.ErrorImage = global::BCP.Properties.Resources.Varig_Log_svg;
             this.pic_printinvoice.Image = global::BCP.Properties.Resources.Varig_Log_svg;
             this.pic_printinvoice.InitialImage = global::BCP.Properties.Resources.Varig_Log_svg;
-            this.pic_printinvoice.Location = new System.Drawing.Point(233, 366);
+            this.pic_printinvoice.Location = new System.Drawing.Point(246, 366);
             this.pic_printinvoice.Name = "pic_printinvoice";
-            this.pic_printinvoice.Size = new System.Drawing.Size(265, 106);
+            this.pic_printinvoice.Size = new System.Drawing.Size(257, 106);
             this.pic_printinvoice.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_printinvoice.TabIndex = 3;
             this.pic_printinvoice.TabStop = false;

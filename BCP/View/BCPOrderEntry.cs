@@ -385,42 +385,6 @@ namespace BCP.View
 
             }
 
-            //string colname = this.dataGridProgramdetail.Columns[this.dataGridProgramdetail.CurrentCell.ColumnIndex].Name;
-
-            ////  MessageBox.Show(colname);
-            //if (colname == "Program")
-            //{
-            //    if (this.dataGridProgramdetail.Rows[this.dataGridProgramdetail.CurrentCell.RowIndex].Cells["Program"].Value != null) // && this.dataGridProgramdetail.Rows[this.dataGridProgramdetail.CurrentCell.RowIndex].Cells["Program"].Value != null
-            //    {
-            //        string programe = this.dataGridProgramdetail.Rows[this.dataGridProgramdetail.CurrentCell.RowIndex].Cells["Program"].Value.ToString();
-
-
-
-            //        if (programe.Trim() == "DIS")  //     discount on invocie
-            //        {
-            //            //   MessageBox.Show(programe);
-
-            //            //    dataGridProgramdetail.Rows[e.RowIndex].Cells["Taget_Percentage"].Value = System.DBNull.Value;
-            //            dataGridProgramdetail.Rows[e.RowIndex].Cells["Payment_Control"].Style.BackColor = Color.White;
-            //            dataGridProgramdetail.Rows[e.RowIndex].Cells["Payment_Control"].Style.ForeColor = Color.Blue;
-
-            //            if (dataGridProgramdetail.Rows[e.RowIndex].Cells["Payment_Control"].Value == null || dataGridProgramdetail.Rows[e.RowIndex].Cells["Payment_Control"].Value.ToString().Trim() != "DIS")
-            //            {
-            //                dataGridProgramdetail.Rows[e.RowIndex].Cells["Payment_Control"].Value = "DIS";
-            //            }
-
-
-            //        }
-
-
-
-
-
-            //    }
-
-            //   }
-
-
 
         }
 
@@ -445,22 +409,7 @@ namespace BCP.View
 
                 //ADD PARAMS
                 comm.Parameters.AddWithValue("@Document", ValueText);
-                //     comm.Parameters.AddWithValue("@Created_by", username);
-                // comm.Parameters.AddWithValue("@Plant", this.shippingpoint);
-                //    comm.Parameters.AddWithValue("@Customer_Code", this.Seachcode);
 
-
-                //OleDbParameter parm = new OleDbParameter("@fromdate", OleDbType.Date);
-                //parm.Value = fromdate;
-                //comm.Parameters.Add(parm);
-
-                //OleDbParameter parm2 = new OleDbParameter("@todate", OleDbType.Date);
-                //parm2.Value = todate;
-                //comm.Parameters.Add(parm2)/*;*/
-
-
-                //  DataSet ds = new DataSet();
-                // create the adapter and fill the DataSet
                 OleDbDataAdapter adapter =
                new OleDbDataAdapter(comm);
                 adapter.Fill(ds);
@@ -790,7 +739,7 @@ namespace BCP.View
 
 
 
-            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH ĐƠN ĐẶT HÀNG","","");
+            View.BCPViewdatatable view = new BCPViewdatatable(dt, "DANH SÁCH ĐƠN ĐẶT HÀNG", "", "");
             view.ShowDialog();
 
 
@@ -1051,20 +1000,18 @@ namespace BCP.View
                 string salesRegion = lbsalesRegion.Text.ToString();
                 string keyAccount = Model.Orders.getKeyaccount(custCode, salesRegion);
                 string salesDistric = Model.Orders.getsalesDistric(custCode, salesRegion);
-             
+
                 DateTime dlvDate = dateTimePicker1.Value;
+                OleDbConnection conn = new OleDbConnection(connection_string);
+                conn.Open();
 
                 for (int idrow = 0; idrow < dataGridetailorder.RowCount - 1; idrow++)
                 {
 
 
-
-
-
-                    OleDbConnection conn = new OleDbConnection(connection_string);
                     string username = Utils.getUsername();
                     //   string StringQuery = "Delete from tbl_list_Order where tbl_list_Order.Document = @Ordernumber";
-                    conn.Open();
+
 
                     string StringQuery = @"INSERT INTO tbl_list_Order( Created_by,   Plant, sales_region , Purchase_order_number, Address , DlvDate ,Document , Sold_to_pt, Name_pt, Material ,Description ,Order_qty ,fRECASSE ,Shipto ,ShiptoName,ShippingPoint, CreateDate , Unit  , amount , EmptyCode , Emptyname , EmptyUnit , BasePrice , PromotionDiscount , FuntionDiscount , SurchargeDiscount, KeyAccount, ProducGroup, totalAmount) 
                                     VALUES ( @Created_by,   @Plant, @sales_region , @Purchase_order_number, @Address , @DlvDate ,@Document , @Sold_to_pt, @Name_pt, @Material ,@Description ,@Order_qty ,@fRECASSE ,@Shipto ,@ShiptoName,@ShippingPoint, @CreateDate, @Unit, @amount , @EmptyCode, @Emptyname, @EmptyUnit, @BasePrice , @PromotionDiscount, @FuntionDiscount, @SurchargeDiscount, @KeyAccount, @ProducGroup, @totalAmount ) ";
@@ -1109,7 +1056,7 @@ namespace BCP.View
                     //dataGridetailorder.Rows[idrow].Cells["FreeCase"].Value
 
 
-                    comm.Parameters.AddWithValue("@fRECASSE", freecase );  //FreeCase
+                    comm.Parameters.AddWithValue("@fRECASSE", freecase);  //FreeCase
                     comm.Parameters.AddWithValue("@Shipto", int.Parse(txtshipto.Text.ToString())); // numbar
 
                     comm.Parameters.AddWithValue("@ShiptoName", lbshiptoname.Text.ToString()); // numbar ShippingPoint
@@ -1123,7 +1070,7 @@ namespace BCP.View
                     //  public static double getBasePrice(string productcode, string custcode, string salesRegion, DateTime priceDate)
 
                     double basePrice = Model.Orders.getBasePrice(productCode, custCode, salesRegion, dlvDate);
-                 
+
 
                     int PromotionID = 1; //1 Promotiondiscount 2. Fungtion discount; 3 surcharge
                     int FunntionDiscountCode = 2;
@@ -1138,7 +1085,7 @@ namespace BCP.View
                     }
                     else
                     {
-                         netPrice = basePrice + PromotionDiscountAmount + FunntionDiscountamount + SurchargeDiscounamount;
+                        netPrice = basePrice + PromotionDiscountAmount + FunntionDiscountamount + SurchargeDiscounamount;
 
                     }
 
@@ -1147,7 +1094,7 @@ namespace BCP.View
 
                     double amounttotal = QuantityPro * netPrice * 1.1;
 
-                  
+
 
                     comm.Parameters.AddWithValue("@amount", netPrice); // numbar
                                                                        // EmptyCode
@@ -1178,12 +1125,22 @@ namespace BCP.View
                         //  throw;
                     }
 
-                    conn.Close();
-
 
 
 
                 }// for
+
+
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                    //      conn.Close();
+                    OleDbConnection.ReleaseObjectPool();
+                    GC.Collect();  // I know attation
+                    GC.WaitForPendingFinalizers();
+                }
+
+
                 MessageBox.Show("Order: " + ordernumber + " Created Succsessfully !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lbOrdernumber.Text = ordernumber;
                 dataGridetailorder.Enabled = false;

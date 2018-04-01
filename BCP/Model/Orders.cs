@@ -159,7 +159,17 @@ namespace BCP.Model
                 //comm.Parameters.Add(parm2);
 
                 int temp = comm.ExecuteNonQuery();
-                conn.Close();
+
+
+
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                    //      conn.Close();
+                    OleDbConnection.ReleaseObjectPool();
+                    GC.Collect();  // I know attation
+                    GC.WaitForPendingFinalizers();
+                }
 
                 if (temp > 0)
 
@@ -198,6 +208,7 @@ namespace BCP.Model
             bool dekq = Model.Orders.deleteOrdernumberCreateby("0", username);
             //  string st = "Delete from tbl_list_Order where tbl_list_Order.Document = @Ordernumber";
             string connection_string = Utils.getAccessConnectionstring();
+
             OleDbConnection conn = new OleDbConnection(connection_string);
 
             //   string StringQuery = "Delete from tbl_list_Order where tbl_list_Order.Document = @Ordernumber";

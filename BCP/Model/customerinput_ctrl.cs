@@ -509,6 +509,8 @@ City ,    Telephone1,  VATregistrationNo, Indirect,
 
             OleDbConnection conn = new OleDbConnection(connection_string);
             conn.Open();
+
+
             for (int rowixd = 0; rowixd < sourceData.Rows.Count; rowixd++)
             {
 
@@ -606,7 +608,15 @@ City ,    Telephone1,  VATregistrationNo, Indirect,
 
             }// row
 
-            conn.Close();
+
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+                //      conn.Close();
+                OleDbConnection.ReleaseObjectPool();
+                GC.Collect();  // I know attation
+                GC.WaitForPendingFinalizers();
+            }
 
 
         }

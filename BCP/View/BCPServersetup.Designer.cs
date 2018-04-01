@@ -30,30 +30,50 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BCPServersetup));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.txtmdbfile = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtprovider = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.txtprovider = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtprovider);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.txtmdbfile);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txtprovider);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(427, 141);
             this.panel1.TabIndex = 0;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(358, 58);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(44, 20);
+            this.button3.TabIndex = 8;
+            this.button3.Text = ">>";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(358, 28);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(44, 20);
+            this.button2.TabIndex = 7;
+            this.button2.Text = ">>";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txtmdbfile
             // 
@@ -71,14 +91,6 @@
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Mdb File";
-            // 
-            // txtprovider
-            // 
-            this.txtprovider.Location = new System.Drawing.Point(87, 28);
-            this.txtprovider.Name = "txtprovider";
-            this.txtprovider.Size = new System.Drawing.Size(251, 20);
-            this.txtprovider.TabIndex = 2;
-            this.txtprovider.Text = "Microsoft.Jet.OLEDB.4.0";
             // 
             // button1
             // 
@@ -103,27 +115,19 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // button2
+            // txtprovider
             // 
-            this.button2.Location = new System.Drawing.Point(358, 28);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(44, 20);
-            this.button2.TabIndex = 7;
-            this.button2.Text = ">>";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.txtprovider.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtprovider.FormattingEnabled = true;
+            this.txtprovider.Items.AddRange(new object[] {
+            "Microsoft.Jet.OLEDB.4.0",
+            "Microsoft.ACE.OLEDB.12.0"});
+            this.txtprovider.Location = new System.Drawing.Point(87, 29);
+            this.txtprovider.Name = "txtprovider";
+            this.txtprovider.Size = new System.Drawing.Size(250, 21);
+            this.txtprovider.TabIndex = 9;
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(358, 58);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(44, 20);
-            this.button3.TabIndex = 8;
-            this.button3.Text = ">>";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // Serversetup
+            // BCPServersetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -132,7 +136,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Serversetup";
+            this.Name = "BCPServersetup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Server Setup";
             this.Deactivate += new System.EventHandler(this.Serversetup_Deactivate);
@@ -147,11 +151,11 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtmdbfile;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtprovider;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ComboBox txtprovider;
     }
 }
