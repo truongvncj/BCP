@@ -480,14 +480,14 @@ namespace BCP.Control.PriceCheck
             }
 
 
-            if (conn.State == ConnectionState.Open)
-            {
-                conn.Close();
-                //      conn.Close();
-                OleDbConnection.ReleaseObjectPool();
-                GC.Collect();  // I know attation
-                GC.WaitForPendingFinalizers();
-            }
+            //if (conn.State == ConnectionState.Open)
+            //{
+            //    conn.Close();
+            //    //      conn.Close();
+            //    OleDbConnection.ReleaseObjectPool();
+            //    GC.Collect();  // I know attation
+            //    GC.WaitForPendingFinalizers();
+            //}
 
             //list vn
             var listvn = new List<string>();
@@ -498,7 +498,7 @@ namespace BCP.Control.PriceCheck
 
             // create an open the connection     
             //     OleDbConnection conn = new OleDbConnection(conString);
-            conn.Open();
+            //    conn.Open();
 
 
             //   OleDbDataAdapter1.SelectCommand.CommandText = "SELECT * FROM tbl_Temp WHERE username = @Username AND password = @Password";
@@ -514,7 +514,7 @@ namespace BCP.Control.PriceCheck
 
             // close the connection
 
-       
+
 
             DataTable dt = ds.Tables[0];
 
@@ -524,26 +524,28 @@ namespace BCP.Control.PriceCheck
 
                 listvn.Add(dr["Regions"].ToString());
             }
-            if (conn.State == ConnectionState.Open)
-            {
-                conn.Close();
-                //      conn.Close();
-                OleDbConnection.ReleaseObjectPool();
-                GC.Collect();  // I know attation
-                GC.WaitForPendingFinalizers();
-            }
 
-            //ds. = DBNull;
-            //dt = DBNull;
+            //if (conn.State == ConnectionState.Open)
+            //{
+            //    conn.Close();
+            //    //      conn.Close();
+            //    OleDbConnection.ReleaseObjectPool();
+            //    GC.Collect();  // I know attation
+            //    GC.WaitForPendingFinalizers();
+            //}
 
-            // keyaccount
-            conn.Open();
+            ////ds. = DBNull;
+            ////dt = DBNull;
+
+            //// keyaccount
+            //conn.Open();
 
 
             //   OleDbDataAdapter1.SelectCommand.CommandText = "SELECT * FROM tbl_Temp WHERE username = @Username AND password = @Password";
             // string Query1 = "SELECT * FROM tbl_Temp WHERE username = '" + textBox1.Text + "' AND password = '" + textBox2.Text+"'";
             // create the DataSet
             //     DataSet ds = new DataSet();
+
             DataSet ds1 = new DataSet();
             var listkeyaccount = new List<string>();
             // create the adapter and fill the DataSet
@@ -553,7 +555,7 @@ namespace BCP.Control.PriceCheck
 
             // close the connection
 
-        
+
 
             DataTable dt1 = ds1.Tables[0];
             //  DataTable dt = ds.Tables[0];
@@ -565,20 +567,20 @@ namespace BCP.Control.PriceCheck
             }
             //   listvn.Add("VN");
 
-            if (conn.State == ConnectionState.Open)
-            {
-                conn.Close();
-                //      conn.Close();
-                OleDbConnection.ReleaseObjectPool();
-                GC.Collect();  // I know attation
-                GC.WaitForPendingFinalizers();
-            }
+            //if (conn.State == ConnectionState.Open)
+            //{
+            //    conn.Close();
+            //    //      conn.Close();
+            //    OleDbConnection.ReleaseObjectPool();
+            //    GC.Collect();  // I know attation
+            //    GC.WaitForPendingFinalizers();
+            //}
 
 
             // listsaledistric
 
 
-            conn.Open();
+            //       conn.Open();
 
 
             //   OleDbDataAdapter1.SelectCommand.CommandText = "SELECT * FROM tbl_Temp WHERE username = @Username AND password = @Password";
@@ -594,14 +596,7 @@ namespace BCP.Control.PriceCheck
 
             // close the connection
 
-            if (conn.State == ConnectionState.Open)
-            {
-                conn.Close();
-                //      conn.Close();
-                OleDbConnection.ReleaseObjectPool();
-                GC.Collect();  // I know attation
-                GC.WaitForPendingFinalizers();
-            }
+
 
             DataTable dt2 = ds2.Tables[0];
             //  DataTable dt = ds.Tables[0];
@@ -612,10 +607,17 @@ namespace BCP.Control.PriceCheck
                 listsaledistric.Add(dr["Sales_district"].ToString());
             }
             //    listvn.Add("VN");
+            //if (conn.State == ConnectionState.Open)
+            //{
+            //    conn.Close();
+            //    //      conn.Close();
+            //    OleDbConnection.ReleaseObjectPool();
+            //    GC.Collect();  // I know attation
+            //    GC.WaitForPendingFinalizers();
+            //}
 
 
-
-            conn.Open();
+            //conn.Open();
 
 
             //   OleDbDataAdapter1.SelectCommand.CommandText = "SELECT * FROM tbl_Temp WHERE username = @Username AND password = @Password";
@@ -631,14 +633,6 @@ namespace BCP.Control.PriceCheck
 
             // close the connection
 
-            if (conn.State == ConnectionState.Open)
-            {
-                conn.Close();
-                //      conn.Close();
-                OleDbConnection.ReleaseObjectPool();
-                GC.Collect();  // I know attation
-                GC.WaitForPendingFinalizers();
-            }
 
             DataTable dt3 = ds3.Tables[0];
             //  DataTable dt = ds.Tables[0];
@@ -650,6 +644,14 @@ namespace BCP.Control.PriceCheck
             }
 
 
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+                //      conn.Close();
+                OleDbConnection.ReleaseObjectPool();
+                GC.Collect();  // I know attation
+                GC.WaitForPendingFinalizers();
+            }
 
 
             ExcelProvider ExcelProvide = new ExcelProvider();
@@ -700,6 +702,7 @@ namespace BCP.Control.PriceCheck
             int headindex = 0;
             bool grouproduct = false;
             bool inputtoacesss = false;
+            bool havehead = false;
             //     string connection_string = Utils.getAccessConnectionstring();
 
 
@@ -816,7 +819,7 @@ namespace BCP.Control.PriceCheck
                     keyaccount = "0";
                     saledistrict = "0";
                     customervalue = 0;
-
+                    havehead = false;
                 }
 
                 #endregion // tìm headimdex
@@ -827,26 +830,26 @@ namespace BCP.Control.PriceCheck
                 if (headindex != 0 && sales_regionvalue != "" && listvn.Contains(sales_regionvalue.Trim())) //|| (sales_regionvalue.Trim().Length ==8 && Utils.IsValidnumber(sales_regionvalue.Trim()))) )   // trong nhoms fuction
                 {
                     sales_region = sales_regionvalue;
-
+                    havehead = true;
                 }
 
                 if (headindex != 0 && sales_regionvalue != "" && listkeyaccount.Contains(sales_regionvalue) || (sales_regionvalue.Trim().Length == 5 && Utils.IsValidnumber(sales_regionvalue.Trim())))    // trong nhoms fuction
                 {
 
                     keyaccount = sales_regionvalue;
-
+                    havehead = true;
                 }
 
                 if (headindex != 0 && sales_regionvalue != "" && listsaledistric.Contains(sales_regionvalue.Trim()))   // trong nhoms fuction
                 {
                     saledistrict = sales_regionvalue;
-
+                    havehead = true;
                 }
 
                 if (headindex != 0 && sales_regionvalue != "" && sales_regionvalue.Trim().Length >= 8 && Utils.IsValidnumber(sales_regionvalue))   // trong nhoms fuction
                 {
                     customervalue = double.Parse(sales_regionvalue.ToString());
-
+                    havehead = true;
                 }
                 #endregion gắn keyaccount, sales region, dictric, 
 
@@ -859,7 +862,7 @@ namespace BCP.Control.PriceCheck
 
 
                     DateTime ngaytodate = Utils.ConvertStringSAPdotdatetoDatetime(sourceData.Rows[rowid][todateid].ToString());
-                    if (ngaytodate > DateTime.Today.AddMonths(-1)) //neu to date > = today - 1 tháng  tức là không upload các cái không dùng cho file nhỏ chạy nhanh
+                    if (ngaytodate > DateTime.Today.AddMonths(-1) && havehead == true) //neu to date > = today - 1 tháng  tức là không upload các cái không dùng cho file nhỏ chạy nhanh
                     {
 
                         if (sourceData.Rows[rowid][product_codeid] != null && sourceData.Rows[rowid][product_codeid].ToString() != "" && grouproduct == false)
@@ -896,7 +899,7 @@ namespace BCP.Control.PriceCheck
                             amount = double.Parse(sourceData.Rows[rowid][amountid].ToString());// Utils.GetValueOfCellInExcel(worksheet, rowid, columpamount);;
                         }
 
-                        var path = connection_string;// String.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=Excel 12.0 Xml;", filePath);
+                        //       var path = connection_string;// String.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=Excel 12.0 Xml;", filePath);
 
 
                         if (penctamount + amount != 0)
@@ -908,7 +911,7 @@ namespace BCP.Control.PriceCheck
                             OleDbCommand comm2 = new OleDbCommand(StringQuery2, conn);
 
 
-                            comm2.Parameters.AddWithValue("@product_code", product_codevalue.ToString().Trim());
+                            comm2.Parameters.AddWithValue("@product_code", product_codevalue.ToString());
                             comm2.Parameters.AddWithValue("@product_group", product_groupvalue); // number
                             comm2.Parameters.AddWithValue("@percent_amount", penctamount); // numbear
 
@@ -919,11 +922,11 @@ namespace BCP.Control.PriceCheck
                             OleDbParameter parm2 = new OleDbParameter("@todate", OleDbType.Date);
                             parm2.Value = Utils.ConvertStringSAPdotdatetoDatetime(sourceData.Rows[rowid][todateid].ToString());
                             comm2.Parameters.Add(parm2);
-                            comm2.Parameters.AddWithValue("@customerid", customervalue.ToString().Trim());
-                            comm2.Parameters.AddWithValue("@keyaccount", keyaccount.Trim());  // numbader
-                            comm2.Parameters.AddWithValue("@saledistrict", saledistrict.ToString().Trim());
+                            comm2.Parameters.AddWithValue("@customerid", customervalue.ToString());
+                            comm2.Parameters.AddWithValue("@keyaccount", keyaccount);  // numbader
+                            comm2.Parameters.AddWithValue("@saledistrict", saledistrict.ToString());
                             comm2.Parameters.AddWithValue("@programId", programe);  // numbear
-                            comm2.Parameters.AddWithValue("@Username", username.Trim());
+                            comm2.Parameters.AddWithValue("@Username", username);
 
 
                             comm2.Parameters.AddWithValue("@sales_region", sales_region.Trim());
@@ -968,12 +971,15 @@ namespace BCP.Control.PriceCheck
 
 
                     }
-
+                    inputtoacesss = true;
 
                 }
 
 
-                inputtoacesss = true;
+                #endregion
+
+
+
 
                 if (headindex != 0 && sales_regionvalue == "" && inputtoacesss)   // cot cuoit nhom thì refesh
                 {
@@ -983,13 +989,11 @@ namespace BCP.Control.PriceCheck
                     saledistrict = "0";
                     customervalue = 0;
                     inputtoacesss = false;
+                    havehead = false;
                 }
 
 
 
-
-
-                #endregion
 
 
 
