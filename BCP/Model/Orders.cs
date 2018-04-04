@@ -62,7 +62,7 @@ namespace BCP.Model
             OleDbDataAdapter adapter =
              new OleDbDataAdapter(comm);
             adapter.Fill(ds);
-            conn.Close();
+        //    conn.Close();
             System.Data.DataTable dt = ds.Tables[0];
 
 
@@ -73,6 +73,14 @@ namespace BCP.Model
                 Orderkq = dr["Createby"].ToString();
             }
 
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+                //      conn.Close();
+                OleDbConnection.ReleaseObjectPool();
+                GC.Collect();  // I know attation
+                GC.WaitForPendingFinalizers();
+            }
             return Orderkq;
 
         }
@@ -230,7 +238,15 @@ namespace BCP.Model
             //comm.Parameters.Add(parm2);
 
             int temp = comm.ExecuteNonQuery();
-            conn.Close();
+
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+                //      conn.Close();
+                OleDbConnection.ReleaseObjectPool();
+                GC.Collect();  // I know attation
+                GC.WaitForPendingFinalizers();
+            }
 
             if (temp > 0)
 
@@ -302,7 +318,7 @@ namespace BCP.Model
             OleDbDataAdapter adapter =
              new OleDbDataAdapter(comm);
             adapter.Fill(ds);
-            conn.Close();
+           // conn.Close();
             System.Data.DataTable dt = ds.Tables[0];
 
 
@@ -314,6 +330,14 @@ namespace BCP.Model
             }
 
 
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+                //      conn.Close();
+                OleDbConnection.ReleaseObjectPool();
+                GC.Collect();  // I know attation
+                GC.WaitForPendingFinalizers();
+            }
 
             bool dekq = Model.Orders.deleteOrdernumberCreateby("0", username);
 
@@ -325,30 +349,30 @@ namespace BCP.Model
 
 
 
-        public bool deleteallprogramlist()
-        {
-            string connection_string = Utils.getConnectionstr();
-            var db = new LinqtoSQLDataContext(connection_string);
-            //  var rs = from tblVat in db.tblVats
-            //         select tblVat;
+        //public bool deleteallprogramlist()
+        //{
+        //    string connection_string = Utils.getConnectionstr();
+        //    var db = new LinqtoSQLDataContext(connection_string);
+        //    //  var rs = from tblVat in db.tblVats
+        //    //         select tblVat;
 
-            db.ExecuteCommand("DELETE FROM tbl_kaprogramlist");
-            //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
-            db.SubmitChanges();
-            return true;
-        }
+        //    db.ExecuteCommand("DELETE FROM tbl_kaprogramlist");
+        //    //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
+        //    db.SubmitChanges();
+        //    return true;
+        //}
 
 
-        public IQueryable setlect_all(LinqtoSQLDataContext db)
-        {
+        //public IQueryable setlect_all(LinqtoSQLDataContext db)
+        //{
 
-            //var db = new LinqtoSQLDataContext(connection_string);
-            var rs = from tbl_kaprogramlist in db.tbl_kaprogramlists
-                     select tbl_kaprogramlist;
+        //    //var db = new LinqtoSQLDataContext(connection_string);
+        //    var rs = from tbl_kaprogramlist in db.tbl_kaprogramlists
+        //             select tbl_kaprogramlist;
 
-            return rs;
+        //    return rs;
 
-        }
+        //}
 
         class datainportF
         {
@@ -417,7 +441,15 @@ namespace BCP.Model
             OleDbDataAdapter adapter =
              new OleDbDataAdapter(comm);
             adapter.Fill(ds);
-            conn.Close();
+
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+                //      conn.Close();
+                OleDbConnection.ReleaseObjectPool();
+                GC.Collect();  // I know attation
+                GC.WaitForPendingFinalizers();
+            }
             System.Data.DataTable dt = ds.Tables[0];
 
 
@@ -471,7 +503,15 @@ namespace BCP.Model
             OleDbDataAdapter adapter =
              new OleDbDataAdapter(comm);
             adapter.Fill(ds);
-            conn.Close();
+
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+                //      conn.Close();
+                OleDbConnection.ReleaseObjectPool();
+                GC.Collect();  // I know attation
+                GC.WaitForPendingFinalizers();
+            }
             System.Data.DataTable dt = ds.Tables[0];
 
 
@@ -604,7 +644,15 @@ namespace BCP.Model
             OleDbDataAdapter adapter =
              new OleDbDataAdapter(comm);
             adapter.Fill(ds);
-            conn.Close();
+
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+                //      conn.Close();
+                OleDbConnection.ReleaseObjectPool();
+                GC.Collect();  // I know attation
+                GC.WaitForPendingFinalizers();
+            }
             System.Data.DataTable dt = ds.Tables[0];
 
 
@@ -656,7 +704,15 @@ namespace BCP.Model
             OleDbDataAdapter adapter =
              new OleDbDataAdapter(comm);
             adapter.Fill(ds);
-            conn.Close();
+
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+                //      conn.Close();
+                OleDbConnection.ReleaseObjectPool();
+                GC.Collect();  // I know attation
+                GC.WaitForPendingFinalizers();
+            }
             System.Data.DataTable dt = ds.Tables[0];
 
 
@@ -721,7 +777,15 @@ namespace BCP.Model
             OleDbDataAdapter adapter =
              new OleDbDataAdapter(comm);
             adapter.Fill(ds);
-            conn.Close();
+
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+                //      conn.Close();
+                OleDbConnection.ReleaseObjectPool();
+                GC.Collect();  // I know attation
+                GC.WaitForPendingFinalizers();
+            }
             System.Data.DataTable dt = ds.Tables[0];
 
 
@@ -776,7 +840,15 @@ namespace BCP.Model
             OleDbDataAdapter adapter =
              new OleDbDataAdapter(comm);
             adapter.Fill(ds);
-            conn.Close();
+
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+                //      conn.Close();
+                OleDbConnection.ReleaseObjectPool();
+                GC.Collect();  // I know attation
+                GC.WaitForPendingFinalizers();
+            }
             System.Data.DataTable dt = ds.Tables[0];
 
 
@@ -831,7 +903,15 @@ namespace BCP.Model
             OleDbDataAdapter adapter =
              new OleDbDataAdapter(comm);
             adapter.Fill(ds);
-            conn.Close();
+
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+                //      conn.Close();
+                OleDbConnection.ReleaseObjectPool();
+                GC.Collect();  // I know attation
+                GC.WaitForPendingFinalizers();
+            }
             System.Data.DataTable dt = ds.Tables[0];
 
 
@@ -911,7 +991,15 @@ namespace BCP.Model
             OleDbDataAdapter adapter =
              new OleDbDataAdapter(comm);
             adapter.Fill(ds);
-            conn.Close();
+
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+                //      conn.Close();
+                OleDbConnection.ReleaseObjectPool();
+                GC.Collect();  // I know attation
+                GC.WaitForPendingFinalizers();
+            }
             System.Data.DataTable dt = ds.Tables[0];
 
             if (dt.Rows.Count >0 )

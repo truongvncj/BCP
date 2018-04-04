@@ -58,7 +58,15 @@ namespace BCP.Model
             OleDbDataAdapter adapter =
              new OleDbDataAdapter(comm);
             adapter.Fill(ds);
-            conn.Close();
+
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+                //      conn.Close();
+                OleDbConnection.ReleaseObjectPool();
+                GC.Collect();  // I know attation
+                GC.WaitForPendingFinalizers();
+            }
             System.Data.DataTable dt = ds.Tables[0];
 
            
@@ -175,7 +183,15 @@ namespace BCP.Model
             OleDbDataAdapter adapter =
              new OleDbDataAdapter(comm);
             adapter.Fill(ds);
-            conn.Close();
+
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+                //      conn.Close();
+                OleDbConnection.ReleaseObjectPool();
+                GC.Collect();  // I know attation
+                GC.WaitForPendingFinalizers();
+            }
             System.Data.DataTable dt = ds.Tables[0];
 
 
@@ -233,7 +249,15 @@ namespace BCP.Model
             OleDbDataAdapter adapter =
              new OleDbDataAdapter(comm);
             adapter.Fill(ds);
-            conn.Close();
+
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+                //      conn.Close();
+                OleDbConnection.ReleaseObjectPool();
+                GC.Collect();  // I know attation
+                GC.WaitForPendingFinalizers();
+            }
             System.Data.DataTable dt = ds.Tables[0];
 
 
@@ -298,7 +322,15 @@ namespace BCP.Model
             OleDbDataAdapter adapter =
              new OleDbDataAdapter(comm);
             adapter.Fill(ds);
-            conn.Close();
+
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+                //      conn.Close();
+                OleDbConnection.ReleaseObjectPool();
+                GC.Collect();  // I know attation
+                GC.WaitForPendingFinalizers();
+            }
             System.Data.DataTable dt = ds.Tables[0];
 
 
@@ -343,7 +375,15 @@ namespace BCP.Model
             OleDbDataAdapter adapter =
              new OleDbDataAdapter(comm);
             adapter.Fill(ds);
-            conn.Close();
+
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+                //      conn.Close();
+                OleDbConnection.ReleaseObjectPool();
+                GC.Collect();  // I know attation
+                GC.WaitForPendingFinalizers();
+            }
             System.Data.DataTable dt = ds.Tables[0];
 
 
