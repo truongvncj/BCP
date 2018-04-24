@@ -73,6 +73,16 @@ namespace BCP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap coca_anim_48 {
+            get {
+                object obj = ResourceManager.GetObject("coca_anim_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap coca_cola {
             get {
                 object obj = ResourceManager.GetObject("coca_cola", resourceCulture);

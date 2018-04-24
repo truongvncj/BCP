@@ -1,1 +1,1 @@
-C:\Users\mtruong\Desktop\BCP\Sapprint2003.mdb;Microsoft.Jet.OLEDB.4.0;admin;123123
+C:\Users\mtruong\Desktop\BCP\Sapprint2003.mdb;Microsoft.Jet.OLEDB.4.0;tr1;123123

@@ -36,8 +36,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.webBrowser2 = new System.Windows.Forms.WebBrowser();
+            this.lb_user = new System.Windows.Forms.Label();
+            this.lbusername = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.pic_report = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.inputusser = new System.Windows.Forms.PictureBox();
@@ -46,9 +48,6 @@
             this.pic_printinvoice = new System.Windows.Forms.PictureBox();
             this.pic_ordercreate = new System.Windows.Forms.PictureBox();
             this.inputmarterdata = new System.Windows.Forms.PictureBox();
-            this.webBrowser2 = new System.Windows.Forms.WebBrowser();
-            this.lb_user = new System.Windows.Forms.Label();
-            this.lbusername = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -82,7 +81,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.pic_report);
             this.groupBox1.Controls.Add(this.pictureBox7);
             this.groupBox1.Controls.Add(this.inputusser);
@@ -96,6 +94,41 @@
             this.groupBox1.Size = new System.Drawing.Size(820, 638);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
+            // 
+            // webBrowser2
+            // 
+            this.webBrowser2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.webBrowser2.Location = new System.Drawing.Point(829, 3);
+            this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser2.Name = "webBrowser2";
+            this.webBrowser2.ScriptErrorsSuppressed = true;
+            this.webBrowser2.ScrollBarsEnabled = false;
+            this.webBrowser2.Size = new System.Drawing.Size(197, 630);
+            this.webBrowser2.TabIndex = 10;
+            this.webBrowser2.Tag = "";
+            this.webBrowser2.Url = new System.Uri("https://sites.google.com/site/advcocacolagogle", System.UriKind.Absolute);
+            // 
+            // lb_user
+            // 
+            this.lb_user.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lb_user.AutoSize = true;
+            this.lb_user.Location = new System.Drawing.Point(14, 648);
+            this.lb_user.Name = "lb_user";
+            this.lb_user.Size = new System.Drawing.Size(58, 13);
+            this.lb_user.TabIndex = 23;
+            this.lb_user.Text = "User name";
+            // 
+            // lbusername
+            // 
+            this.lbusername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbusername.AutoSize = true;
+            this.lbusername.ForeColor = System.Drawing.Color.Red;
+            this.lbusername.Location = new System.Drawing.Point(78, 648);
+            this.lbusername.Name = "lbusername";
+            this.lbusername.Size = new System.Drawing.Size(35, 13);
+            this.lbusername.TabIndex = 24;
+            this.lbusername.Text = "label1";
             // 
             // pictureBox1
             // 
@@ -113,23 +146,13 @@
             this.pictureBox1.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave_1);
             this.pictureBox1.MouseHover += new System.EventHandler(this.pictureBox1_MouseHover_1);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(10, 162);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 13);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Business Continuity Plan";
-            // 
             // pic_report
             // 
             this.pic_report.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pic_report.ErrorImage = global::BCP.Properties.Resources.Reports1;
             this.pic_report.Image = global::BCP.Properties.Resources.Reports1;
             this.pic_report.InitialImage = global::BCP.Properties.Resources.Reports1;
-            this.pic_report.Location = new System.Drawing.Point(588, 115);
+            this.pic_report.Location = new System.Drawing.Point(588, 65);
             this.pic_report.Name = "pic_report";
             this.pic_report.Size = new System.Drawing.Size(107, 121);
             this.pic_report.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -141,12 +164,13 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.ErrorImage = global::BCP.Properties.Resources.giphy__1_;
-            this.pictureBox7.Image = global::BCP.Properties.Resources.giphy__1_;
-            this.pictureBox7.InitialImage = global::BCP.Properties.Resources.giphy__1_;
-            this.pictureBox7.Location = new System.Drawing.Point(13, 54);
+            this.pictureBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox7.ErrorImage = global::BCP.Properties.Resources.coca_anim_48;
+            this.pictureBox7.Image = global::BCP.Properties.Resources.coca_anim_48;
+            this.pictureBox7.InitialImage = global::BCP.Properties.Resources.coca_anim_48;
+            this.pictureBox7.Location = new System.Drawing.Point(6, 73);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(119, 105);
+            this.pictureBox7.Size = new System.Drawing.Size(160, 128);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 6;
             this.pictureBox7.TabStop = false;
@@ -250,41 +274,6 @@
             this.inputmarterdata.MouseLeave += new System.EventHandler(this.pictureBox6_MouseLeave);
             this.inputmarterdata.MouseHover += new System.EventHandler(this.pictureBox6_MouseHover);
             // 
-            // webBrowser2
-            // 
-            this.webBrowser2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.webBrowser2.Location = new System.Drawing.Point(829, 3);
-            this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser2.Name = "webBrowser2";
-            this.webBrowser2.ScriptErrorsSuppressed = true;
-            this.webBrowser2.ScrollBarsEnabled = false;
-            this.webBrowser2.Size = new System.Drawing.Size(197, 630);
-            this.webBrowser2.TabIndex = 10;
-            this.webBrowser2.Tag = "";
-            this.webBrowser2.Url = new System.Uri("https://sites.google.com/site/advcocacolagogle", System.UriKind.Absolute);
-            // 
-            // lb_user
-            // 
-            this.lb_user.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lb_user.AutoSize = true;
-            this.lb_user.Location = new System.Drawing.Point(14, 648);
-            this.lb_user.Name = "lb_user";
-            this.lb_user.Size = new System.Drawing.Size(58, 13);
-            this.lb_user.TabIndex = 23;
-            this.lb_user.Text = "User name";
-            // 
-            // lbusername
-            // 
-            this.lbusername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbusername.AutoSize = true;
-            this.lbusername.ForeColor = System.Drawing.Color.Red;
-            this.lbusername.Location = new System.Drawing.Point(78, 648);
-            this.lbusername.Name = "lbusername";
-            this.lbusername.Size = new System.Drawing.Size(35, 13);
-            this.lbusername.TabIndex = 24;
-            this.lbusername.Text = "label1";
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -301,7 +290,6 @@
             this.Load += new System.EventHandler(this.Main_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_report)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
@@ -330,7 +318,6 @@
         private GroupBox groupBox1;
         private WebBrowser webBrowser2;
         private PictureBox pic_report;
-        private Label label1;
         private PictureBox pictureBox1;
     }
 }

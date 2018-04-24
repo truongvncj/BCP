@@ -578,6 +578,7 @@
   <ItemGroup>
     <Content Include="kamanagement_gav_icon.ico" />
     <Content Include="keep_calm_and_continue_business_as_usual1_tVe_2.ico" />
+    <None Include="Resources\coca_anim_48.gif" />
     <None Include="Resources\Settle.jpg" />
     <None Include="Resources\giphy.gif" />
     <None Include="Resources\giphy %281%29.gif" />
